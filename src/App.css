@@ -115,3 +115,14 @@
   position: absolute;
   top: 40%;
 }
+
+.startBtn{
+  bordeR: solid 1px black;
+  padding: 10px;
+  display: block;
+  margin: auto;
+  width: 100px;
+  color: white;
+  background-color: green;
+  cursor: pointer;
+}

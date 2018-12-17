@@ -9,7 +9,8 @@ import BlueBalloon from './balloons/BlueBalloon'
 class App extends Component {
 
   state ={
-    total: 0
+    total: 0,
+    start: false
   }
 
   popBalloon = (e) =>{
@@ -27,6 +28,12 @@ class App extends Component {
 
   }
 
+  onStart=()=>{
+    this.setState({
+      start: true
+    })
+  }
+
   calcPoints = (x, y) =>{
     if (y === "-" ){
       this.setState({
@@ -41,7 +48,7 @@ class App extends Component {
 
   handleOnChange = () =>{
     if (this.state.total > 0){
-      
+
     }
   }
 
@@ -51,13 +58,18 @@ class App extends Component {
         <h1>Balloon Popper</h1>
         <div className="parentBalloonContainer">
 
+        <div className="startBtn" onClick={this.onStart}>Start</div>
+
         <div className="balloonTotal" onChange={this.handleOnChange()}>{this.state.total}</div>
 
-          <div className="balloonContainer">
 
-            <RedBalloon popBalloon={this.popBalloon}/>
-            <BlueBalloon popBalloon={this.popBalloon}/>
-          </div>
+          {this.state.start
+            ? <div className="balloonContainer">
+                 <RedBalloon popBalloon={this.popBalloon}/>
+                 <BlueBalloon popBalloon={this.popBalloon}/>
+              </div>
+            : null
+          }
 
         </div>
 

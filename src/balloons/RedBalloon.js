@@ -6,25 +6,27 @@ class RedBalloon extends Component {
 
   state = {
     popped: false,
-    style:'block'
+    displayStyle:'block',
+    visibilityDisplay: 'visible'
   }
 
   componentDidMount = () =>{
     setTimeout(()=>{
       this.setState({
-        style: 'none'
+        displayStyle: 'none'
       })
     }, 6000)
   }
 
   popBalloon = (e) =>{
+    debugger
     this.props.popBalloon(e)
     this.setState({
       popped: true
     }, ()=>{
       setTimeout(()=>{
         this.setState({
-          style: 'none'
+          visibilityStyle: 'hidden'
         })
       }, 200)
     })
@@ -32,13 +34,15 @@ class RedBalloon extends Component {
 
   render() {
 
+    var clickerOpt = this.state.popped ? null : this.popBalloon
+
     return (
 
-        <div className="innerBalloonContainer" style={{display: this.state.style}}>
+        <div className="innerBalloonContainer" style={{visibility: this.state.visibilityStyle, display: this.state.displayStyle}}>
 
         {this.state.popped
           ? <p className="poppedRed">POPPED</p>
-          : <div className="redBalloon" onClick={this.popBalloon}>
+          : <div className="redBalloon" onClick={clickerOpt}>
               <div className="spanDiv">
                 <span className="balloonSpanOne">+</span>
                 <span className="balloonSpanTwo">5</span>
