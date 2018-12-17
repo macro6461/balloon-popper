@@ -55,7 +55,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Balloon Popper</h1>
+        <h1>Balloon Boi</h1>
         <div className="parentBalloonContainer">
 
         <div className="startBtn" onClick={this.onStart}>Start</div>
