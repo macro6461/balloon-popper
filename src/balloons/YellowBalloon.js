@@ -6,25 +6,37 @@ class YellowBalloon extends Component {
 
   state = {
     popped: false,
-    style:'block'
+    displayStyle:'block',
+    visibilityDisplay: 'visible',
+    operator: ''
   }
 
   componentDidMount = () =>{
+    if (this.props.generatePlusOrMinus() == 1){
+      this.setState({
+        operator: '+'
+      })
+    } else {
+      this.setState({
+        operator: '-'
+      })
+    }
     setTimeout(()=>{
       this.setState({
-        style: 'none'
+        displayStyle: 'none'
       })
     }, 6000)
   }
 
   popBalloon = (e) =>{
+    debugger
     this.props.popBalloon(e)
     this.setState({
       popped: true
     }, ()=>{
       setTimeout(()=>{
         this.setState({
-          style: 'none'
+          visibilityStyle: 'hidden'
         })
       }, 200)
     })
@@ -32,16 +44,18 @@ class YellowBalloon extends Component {
 
   render() {
 
-  return (
+    var clickerOpt = this.state.popped ? null : this.popBalloon
 
-        <div className="innerBalloonContainer" style={{display: this.state.style}}>
+    return (
+
+        <div className="innerBalloonContainer" style={{visibility: this.state.visibilityStyle, display: this.state.displayStyle}}>
 
         {this.state.popped
           ? <p>POPPED</p>
-          : <div className="blueBalloon" onClick={this.popBalloon}>
+          : <div className="yellowBalloon" onClick={this.popBalloon}>
               <div className="spanDiv">
-                <span className="balloonSpanOne">+</span>
-                <span className="balloonSpanTwo">10</span>
+                <span className="balloonSpanOne">{this.state.operator}</span>
+                <span className="balloonSpanTwo">30</span>
               </div>
             </div>
         }

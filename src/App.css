@@ -32,8 +32,9 @@
   text-align: center;
 }
 
+/* -------------------- UNIVERSAL BALLOON STYLES -------------------- */
 
-.redBalloon, .blueBalloon {
+.redBalloon, .blueBalloon, .greenBalloon, .indigoBalloon, .orangeBalloon, .violetBalloon, .yellowBalloon {
   text-align: center;
   border-radius:0;
   border-radius:80% 80% 80% 80%;
@@ -42,21 +43,141 @@
   padding:10px;
   -webkit-transform-origin: bottom center;
   animation: balloon-bounce 6s ease-in-out infinite;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+   border: solid 1px black;
 }
+
+/* -------------------- RED BALLOON STYLES -------------------- */
 
 .redBalloon{
   width:104px;
   height:104px;
-  left: 30px;
+  left: 52px;
   background-color: red;
   box-shadow:inset 17px 7px 10px red;
 }
+
+.redBalloon:before {
+  color:red;
+  position:absolute;
+  bottom:-14px;
+  left: 52px;
+  content:"▲";
+  font-size:1em;
+}
+
+/* -------------------- ORANGE BALLOON STYLES -------------------- */
+
+.orangeBalloon{
+  width:104px;
+  height:104px;
+  left: 12px;
+  background-color: orange;
+  box-shadow:inset 17px 7px 10px orange;
+}
+
+.orangeBalloon:before {
+  color:orange;
+  position:absolute;
+  bottom:-14px;
+  left: 52px;
+  content:"▲";
+  font-size:1em;
+}
+
+/* -------------------- YELLOW BALLOON STYLES -------------------- */
+
+.yellowBalloon{
+  width:104px;
+  height:104px;
+  left: 300px;
+  background-color: yellow;
+  box-shadow:inset 17px 7px 10px yellow;
+}
+
+.yellowBalloon:before {
+  color:yellow;
+  position:absolute;
+  bottom:-14px;
+  content:"▲";
+  font-size:1em;
+}
+
+/* -------------------- GREEN BALLOON STYLES -------------------- */
+
+.greenBalloon{
+  background-color: green;
+  box-shadow:inset 17px 7px 10px green;
+  width:60px;
+  height:60px;
+  left: 202px;
+}
+
+.greenBalloon:before {
+  color:green;
+  position:absolute;
+  bottom:-14px;
+  content:"▲";
+  font-size:1em;
+}
+
+/* -------------------- BLUE BALLOON STYLES -------------------- */
 
 .blueBalloon{
   background-color: blue;
   box-shadow:inset 17px 7px 10px blue;
   width:60px;
   height:60px;
+  left: 12px;
+}
+
+.blueBalloon:before {
+  color:blue;
+  position:absolute;
+  bottom:-11px;
+  left: 12px;
+  content:"▲";
+  font-size:1em;
+}
+
+/* -------------------- INDIGO BALLOON STYLES -------------------- */
+
+.indigoBalloon{
+  width:104px;
+  height:104px;
+  left: 82px;
+  background-color: indigo;
+  box-shadow:inset 17px 7px 10px indigo;
+}
+
+.indigoBalloon:before {
+  color:indigo;
+  position:absolute;
+  bottom:-14px;
+  left: 62px;
+  content:"▲";
+  font-size:1em;
+}
+
+/* -------------------- VIOLET BALLOON STYLES -------------------- */
+
+.violetBalloon{
+  background-color: violet;
+  box-shadow:inset 17px 7px 10px violet;
+  width:60px;
+  height:60px;
+  left: 102px;
+}
+
+.violetBalloon:before {
+  color: violet;
+  position:absolute;
+  bottom:-14px;
+  left: 40px;
+  content:"▲";
+  font-size:1em;
 }
 
 @keyframes balloon-bounce{
@@ -81,28 +202,11 @@
   padding: 20px;
 }
 
-.redBalloon:before {
-  color:red;
-  position:absolute;
-  bottom:-11px;
-  left: 52px;
-  content:"▲";
-  font-size:1em;
-}
-
-.blueBalloon:before {
-  color:blue;
-  position:absolute;
-  bottom:-11px;
-  left: 52px;
-  content:"▲";
-  font-size:1em;
-}
-
 .balloonSpanOne {
   display: inline-block;
-  font-size: 20px;
-  color: white;
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+   font-size: 30px;
   position: absolute;
   top: 40%;
   margin-left: -15px;
@@ -110,8 +214,9 @@
 
 .balloonSpanTwo {
   display: inline-block;
-  font-size: 20px;
-  color: white;
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+   font-size: 30px;
   position: absolute;
   top: 40%;
 }

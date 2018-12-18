@@ -7,10 +7,20 @@ class RedBalloon extends Component {
   state = {
     popped: false,
     displayStyle:'block',
-    visibilityDisplay: 'visible'
+    visibilityDisplay: 'visible',
+    operator: ''
   }
 
   componentDidMount = () =>{
+    if (this.props.generatePlusOrMinus() == 1){
+      this.setState({
+        operator: '+'
+      })
+    } else {
+      this.setState({
+        operator: '-'
+      })
+    }
     setTimeout(()=>{
       this.setState({
         displayStyle: 'none'
@@ -44,7 +54,7 @@ class RedBalloon extends Component {
           ? <p className="poppedRed">POPPED</p>
           : <div className="redBalloon" onClick={clickerOpt}>
               <div className="spanDiv">
-                <span className="balloonSpanOne">+</span>
+                <span className="balloonSpanOne">{this.state.operator}</span>
                 <span className="balloonSpanTwo">5</span>
               </div>
             </div>
