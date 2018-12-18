@@ -21,11 +21,11 @@ class YellowBalloon extends Component {
         operator: '-'
       })
     }
-    setTimeout(()=>{
-      this.setState({
-        displayStyle: 'none'
-      })
-    }, 6000)
+    // setTimeout(()=>{
+    //   this.setState({
+    //     displayStyle: 'none'
+    //   })
+    // }, 6000)
   }
 
   popBalloon = (e) =>{
@@ -54,8 +54,8 @@ class YellowBalloon extends Component {
           ? <p>POPPED</p>
           : <div className="yellowBalloon" onClick={this.popBalloon}>
               <div className="spanDiv">
-                <span className="balloonSpanOne">{this.state.operator}</span>
-                <span className="balloonSpanTwo">30</span>
+                <span className="balloonSpanOp">{this.state.operator}</span>
+                <span className="balloonSpanNum">30</span>
               </div>
             </div>
         }

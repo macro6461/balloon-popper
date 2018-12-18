@@ -20,12 +20,17 @@ class App extends Component {
 
   popBalloon = (e) =>{
 
+    debugger
+
     var balloon
-    if (e.target.tagName === "SPAN"){
+    if (e.target.className === "balloonSpanOp" || e.target.className === "balloonSpanNum" ){
+      balloon = e.target.parentElement.parentElement
+    } else if (e.target.className === "spanDiv") {
       balloon = e.target.parentElement
     } else {
       balloon = e.target
     }
+
     var points = parseInt(balloon.children[0].children[1].innerText)
     var op = balloon.children[0].children[0].innerText
 
@@ -35,7 +40,8 @@ class App extends Component {
 
   onStart=()=>{
     this.setState({
-      start: true
+      start: true,
+      total: 0
     })
   }
 
@@ -59,7 +65,8 @@ class App extends Component {
 
   restart = () =>{
     this.setState({
-      start: false
+      start: false,
+      total: 0
     })
   }
 

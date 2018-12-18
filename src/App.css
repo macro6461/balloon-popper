@@ -68,6 +68,18 @@
   font-size:1em;
 }
 
+.redBalloon div:nth-child(1) .balloonSpanOp, .redBalloon div:nth-child(1) .balloonSpanNum {
+  top: 40% !important;
+}
+
+.redBalloon div:nth-child(1) .balloonSpanNum{
+  margin-left: -2px;
+}
+
+.redBalloon div:nth-child(1) .balloonSpanOp{
+  margin-left: -20px;
+}
+
 /* -------------------- ORANGE BALLOON STYLES -------------------- */
 
 .orangeBalloon{
@@ -85,6 +97,14 @@
   left: 52px;
   content:"▲";
   font-size:1em;
+}
+
+.orangeBalloon div:nth-child(1) .balloonSpanOp, .balloonSpanNum {
+  top: 30% !important;
+}
+
+.orangeBalloon div:nth-child(1) .balloonSpanNum{
+  margin-left: -10px;
 }
 
 /* -------------------- YELLOW BALLOON STYLES -------------------- */
@@ -105,6 +125,18 @@
   font-size:1em;
 }
 
+.yellowBalloon div:nth-child(1) .balloonSpanOp, .yellowBalloon div:nth-child(1) .balloonSpanNum {
+  top: 40% !important;
+}
+
+.yellowBalloon div:nth-child(1) .balloonSpanNum{
+  margin-left: -10px;
+}
+
+.yellowBalloon div:nth-child(1) .balloonSpanOp{
+  margin-left: -32px;
+}
+
 /* -------------------- GREEN BALLOON STYLES -------------------- */
 
 .greenBalloon{
@@ -123,6 +155,18 @@
   font-size:1em;
 }
 
+.greenBalloon div:nth-child(1) .balloonSpanOp, .balloonSpanNum {
+  top: 30% !important;
+}
+
+.greenBalloon div:nth-child(1) .balloonSpanNum{
+  margin-left: -10px;
+}
+
+.greenBalloon div:nth-child(1) .balloonSpanOp{
+  margin-left: -30px;
+}
+
 /* -------------------- BLUE BALLOON STYLES -------------------- */
 
 .blueBalloon{
@@ -136,10 +180,22 @@
 .blueBalloon:before {
   color:blue;
   position:absolute;
-  bottom:-11px;
-  left: 12px;
+  bottom:-14px;
+  left: 34px;
   content:"▲";
   font-size:1em;
+}
+
+.blueBalloon div:nth-child(1) .balloonSpanOp, .balloonSpanNum {
+  top: 30% !important;
+}
+
+.blueBalloon div:nth-child(1) .balloonSpanNum{
+  margin-left: -10px;
+}
+
+.blueBalloon div:nth-child(1) .balloonSpanOp{
+  margin-left: -25px;
 }
 
 /* -------------------- INDIGO BALLOON STYLES -------------------- */
@@ -161,6 +217,18 @@
   font-size:1em;
 }
 
+.indigoBalloon div:nth-child(1) .balloonSpanOp, .indigoBalloon div:nth-child(1) .balloonSpanNum {
+  top: 40% !important;
+}
+
+.indigoBalloon div:nth-child(1) .balloonSpanNum{
+  margin-left: -10px;
+}
+
+.indigoBalloon div:nth-child(1) .balloonSpanOp{
+  margin-left: -32px;
+}
+
 /* -------------------- VIOLET BALLOON STYLES -------------------- */
 
 .violetBalloon{
@@ -178,6 +246,18 @@
   left: 40px;
   content:"▲";
   font-size:1em;
+}
+
+.violetBalloon div:nth-child(1) .balloonSpanOp, .violetBalloon div:nth-child(1) .balloonSpanNum {
+  top: 30% !important;
+}
+
+.violetBalloon div:nth-child(1) .balloonSpanNum{
+  margin-left: -10px;
+}
+
+.violetBalloon div:nth-child(1) .balloonSpanOp{
+  margin-left: -30px;
 }
 
 @keyframes balloon-bounce{
@@ -202,23 +282,25 @@
   padding: 20px;
 }
 
-.balloonSpanOne {
+.balloonSpanOp {
   display: inline-block;
   -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: black;
    font-size: 30px;
+  font-weight: 800;
   position: absolute;
   top: 40%;
-  margin-left: -15px;
+  margin-left: -25px;
 }
 
-.balloonSpanTwo {
+.balloonSpanNum {
   display: inline-block;
   -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: black;
    font-size: 30px;
   position: absolute;
   top: 40%;
+  font-weight: 800;
 }
 
 .startBtn{
