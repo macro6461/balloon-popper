@@ -12,6 +12,30 @@ class BlueBalloon extends Component {
   }
 
   componentDidMount = () =>{
+    this.changeOp()
+    setInterval(()=>{
+        this.setState({
+          displayStyle: 'none',
+        })
+        setTimeout(()=>{
+        this.refresh()
+        }, 100)
+        console.log(this.state.visibilityDisplay)
+    }, 6000)
+  }
+
+  refresh = () =>{
+    this.setState({
+      popped: false,
+      displayStyle:'block',
+      visibilityDisplay: 'visible',
+      operator: ''
+    }, ()=>{
+      this.changeOp()
+    })
+  }
+
+  changeOp = () =>{
     if (this.props.generatePlusOrMinus() == 1){
       this.setState({
         operator: '+'
@@ -21,15 +45,9 @@ class BlueBalloon extends Component {
         operator: '-'
       })
     }
-    // setTimeout(()=>{
-    //   this.setState({
-    //     displayStyle: 'none'
-    //   })
-    // }, 6000)
   }
 
   popBalloon = (e) =>{
-    debugger
     this.props.popBalloon(e)
     this.setState({
       popped: true
@@ -48,7 +66,7 @@ class BlueBalloon extends Component {
 
     return (
 
-        <div className="innerBalloonContainer" style={{visibility: this.state.visibilityStyle, display: this.state.displayStyle}}>
+        <div className="innerBalloonContainer" style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle}}>
 
         {this.state.popped
           ? <p>POPPED</p>
