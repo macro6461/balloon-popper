@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../App.scss';
 // import style from './App.less'
 
 class YellowBalloon extends Component {
@@ -8,14 +8,18 @@ class YellowBalloon extends Component {
     popped: false,
     displayStyle:'block',
     visibilityDisplay: 'visible',
+    operator: '',
     leftStyle: 0,
-    operator: ''
+    classColors: ['red', 'green', 'blue', 'yellow', 'orange', 'indigo', 'violet'],
+    classColorChoice: ''
   }
 
   componentDidMount = () =>{
     this.changeOp()
     this.randomLeft()
+    this.generateRandomClass()
     setInterval(()=>{
+      this.generateRandomClass()
         this.setState({
           displayStyle: 'none',
         })
@@ -50,6 +54,11 @@ class YellowBalloon extends Component {
     }
   }
 
+  generateRandomClass = () =>{
+    var classColor = this.state.classColors[Math.floor(Math.random()*this.state.classColors.length)]
+    return this.setState({classColorChoice: classColor})
+  }
+
   popBalloon = (e) =>{
     this.props.popBalloon(e)
     this.setState({
@@ -63,23 +72,25 @@ class YellowBalloon extends Component {
     })
   }
 
-  randomLeft = () =>{
-    this.setState({
-        leftStyle: Math.floor(Math.random() * 500) + 1
-    })
-  }
+    randomLeft = () =>{
+        this.setState({
+            leftStyle: Math.floor(Math.random() * 500) + 1
+        })
+    }
 
   render() {
 
-    // var clickerOpt = this.state.popped ? null : this.popBalloon
+    var clickerOpt = this.state.popped ? null : this.popBalloon
+
+    var finalClass = 'innerBalloonContainer ' + this.state.classColorChoice
 
     return (
 
-        <div className="innerBalloonContainer" style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle}}>
+        <div className='balloon' style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle}}>
 
         {this.state.popped
           ? <p style={{position: 'absolute'}}>POPPED</p>
-          : <div className="yellowBalloon" onClick={this.popBalloon} style={{left: this.state.leftStyle}}>
+          : <div className="balloon yellowBalloon" onClick={this.popBalloon} style={{left: this.state.leftStyle}}>
               <div className="spanDiv">
                 <span className="balloonSpanOp">{this.state.operator}</span>
                 <span className="balloonSpanNum">30</span>

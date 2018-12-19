@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../App.scss';
 // import style from './App.less'
 
 class OrangeBalloon extends Component {
@@ -9,13 +9,17 @@ class OrangeBalloon extends Component {
     displayStyle:'block',
     visibilityDisplay: 'visible',
     operator: '',
-    leftStyle: 0
+    leftStyle: 0,
+    classColors: ['red', 'green', 'blue', 'yellow', 'orange', 'indigo', 'violet'],
+    classColorChoice: ''
   }
 
   componentDidMount = () =>{
     this.changeOp()
     this.randomLeft()
+    this.generateRandomClass()
     setInterval(()=>{
+      this.generateRandomClass()
         this.setState({
           displayStyle: 'none',
         })
@@ -33,8 +37,8 @@ class OrangeBalloon extends Component {
       visibilityDisplay: 'visible',
       operator: ''
     }, ()=>{
-        this.changeOp()
-        this.randomLeft()
+      this.changeOp()
+      this.randomLeft()
     })
   }
 
@@ -48,6 +52,11 @@ class OrangeBalloon extends Component {
         operator: '-'
       })
     }
+  }
+
+  generateRandomClass = () =>{
+    var classColor = this.state.classColors[Math.floor(Math.random()*this.state.classColors.length)]
+    return this.setState({classColorChoice: classColor})
   }
 
   popBalloon = (e) =>{
@@ -73,13 +82,15 @@ class OrangeBalloon extends Component {
 
     var clickerOpt = this.state.popped ? null : this.popBalloon
 
+    var finalClass = 'innerBalloonContainer ' + this.state.classColorChoice
+
     return (
 
-        <div className="innerBalloonContainer" style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle}}>
+        <div className='balloon' style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle}}>
 
         {this.state.popped
           ? <p style={{position: 'absolute'}}>POPPED</p>
-          : <div className="orangeBalloon" onClick={this.popBalloon} style={{left: this.state.leftStyle}}>
+          : <div className="balloon orangeBalloon" onClick={this.popBalloon} style={{left: this.state.leftStyle}}>
               <div className="spanDiv">
                 <span className="balloonSpanOp">{this.state.operator}</span>
                 <span className="balloonSpanNum">20</span>
