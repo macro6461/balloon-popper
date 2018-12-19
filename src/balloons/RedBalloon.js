@@ -8,10 +8,12 @@ class RedBalloon extends Component {
     popped: false,
     displayStyle:'block',
     visibilityDisplay: 'visible',
-    operator: ''
+    operator: '',
+    leftStyle: 0,
   }
 
   componentDidMount = () =>{
+      this.randomLeft()
     this.changeOp()
     setInterval(()=>{
         this.setState({
@@ -31,7 +33,8 @@ class RedBalloon extends Component {
       visibilityDisplay: 'visible',
       operator: ''
     }, ()=>{
-      this.changeOp()
+        this.changeOp()
+        this.randomLeft()
     })
   }
 
@@ -60,17 +63,23 @@ class RedBalloon extends Component {
     })
   }
 
+    randomLeft = () =>{
+        this.setState({
+            leftStyle: Math.floor(Math.random() * 500) + 1
+        })
+    }
+
   render() {
 
-    var clickerOpt = this.state.popped ? null : this.popBalloon
+    // var clickerOpt = this.state.popped ? null : this.popBalloon
 
     return (
 
         <div className="innerBalloonContainer" style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle}}>
 
         {this.state.popped
-          ? <p className="poppedRed">POPPED</p>
-          : <div className="redBalloon" onClick={clickerOpt}>
+          ? <p style={{position: 'absolute'}}>POPPED</p>
+          : <div className="redBalloon" onClick={this.popBalloon} style={{left: this.state.leftStyle}}>
               <div className="spanDiv">
                 <span className="balloonSpanOp">{this.state.operator}</span>
                 <span className="balloonSpanNum">5</span>

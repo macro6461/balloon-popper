@@ -91,18 +91,20 @@ class App extends Component {
       startBtntext = 'Start'
     }
 
+
     return (
       <div className="App">
         <h1>Balloon Boi</h1>
+        <div style={{height: 100 + 'px'}}>
+          <div className="headContainer">
+            <div className="startBtn" onClick={startBtnAction}>{startBtntext}</div>
+            <div className="balloonTotal" onChange={this.handleOnChange()}>{this.state.total}</div>
+          </div>
+        </div>
         <div className="parentBalloonContainer">
-
-        <div className="startBtn" onClick={startBtnAction}>{startBtntext}</div>
-
-        <div className="balloonTotal" onChange={this.handleOnChange()}>{this.state.total}</div>
-
-
-          {this.state.start
-            ? <div className="balloonContainer">
+           <div className="balloonContainer">
+             {this.state.start
+               ?<div>
                  <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
                  <BlueBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
                  <OrangeBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
@@ -110,9 +112,10 @@ class App extends Component {
                  <GreenBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
                  <IndigoBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
                  <VioletBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
-              </div>
+                 </div>
             : null
           }
+          </div>
 
         </div>
 
