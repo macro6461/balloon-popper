@@ -10,22 +10,20 @@ class OrangeBalloon extends Component {
     visibilityDisplay: 'visible',
     operator: '',
     leftStyle: 0,
-    classColors: ['red', 'green', 'blue', 'yellow', 'orange', 'indigo', 'violet'],
-    classColorChoice: ''
+    topStyle: 0,
+    timer: 0,
   }
 
   componentDidMount = () =>{
     this.changeOp()
     this.randomLeft()
-    this.generateRandomClass()
     setInterval(()=>{
-      this.generateRandomClass()
         this.setState({
           displayStyle: 'none',
         })
         setTimeout(()=>{
         this.refresh()
-        }, 100)
+      }, this.state.timer)
         console.log(this.state.visibilityDisplay)
     }, 6000)
   }
@@ -35,7 +33,10 @@ class OrangeBalloon extends Component {
       popped: false,
       displayStyle:'block',
       visibilityDisplay: 'visible',
-      operator: ''
+      operator: '',
+      leftStyle: 0,
+      topStyle: 0,
+      timer: 0,
     }, ()=>{
       this.changeOp()
       this.randomLeft()
@@ -54,11 +55,6 @@ class OrangeBalloon extends Component {
     }
   }
 
-  generateRandomClass = () =>{
-    var classColor = this.state.classColors[Math.floor(Math.random()*this.state.classColors.length)]
-    return this.setState({classColorChoice: classColor})
-  }
-
   popBalloon = (e) =>{
     this.props.popBalloon(e)
     this.setState({
@@ -72,11 +68,13 @@ class OrangeBalloon extends Component {
     })
   }
 
-    randomLeft = () =>{
-        this.setState({
-            leftStyle: Math.floor(Math.random() * 500) + 1
-        })
-    }
+  randomLeft = () =>{
+      this.setState({
+          leftStyle: Math.floor(Math.random() * 500) + 1,
+          topStyle: Math.floor(Math.random() * -300) + -450,
+          timer: Math.floor(Math.random() * 10) + 7
+      }, ()=>{console.log(this.state.topStyle)})
+  }
 
   render() {
 
@@ -90,7 +88,7 @@ class OrangeBalloon extends Component {
 
         {this.state.popped
           ? <p style={{position: 'absolute'}}>POPPED</p>
-          : <div className="balloon orangeBalloon" onClick={this.popBalloon} style={{left: this.state.leftStyle}}>
+          : <div className="balloon orangeBalloon" onClick={this.popBalloon} style={{left: this.state.leftStyle, top: this.state.topStyle}}>
               <div className="spanDiv">
                 <span className="balloonSpanOp">{this.state.operator}</span>
                 <span className="balloonSpanNum">20</span>

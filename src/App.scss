@@ -21,15 +21,15 @@
 .balloon{
   position: absolute;
   top: -100px;
-  animation: square 100s linear;
+  animation: balloon-rise 10s;
 }
 
-@for $i from 1 through 41 {
-  .balloon:nth-child(#{$i}){
-    animation-delay: ($i * -.06s);
-    transform: translateY(1000px);
-  }
-}
+// @for $i from 1 through 41 {
+//   .balloon:nth-child(#{$i}){
+//     animation-delay: ($i * -.06s);
+//     transform: translateY(1000px);
+//   }
+// }
 
 .App {
   text-align: center;
@@ -297,59 +297,11 @@
   50%{ -webkit-transform:translateY(-20px) rotate(8deg);}
 }
 
-// @keyframes balloon-rise{
-//   0%{
-//     -webkit-transform:translateY(1000px);
-//   } 100%{
-//     -webkit-transform:translateY(-500px);
-//   }
-// }
-
-@keyframes second-balloon-rise {
+@keyframes balloon-rise{
   0%{
-    -webkit-transform:translateY(2100px);
+    -webkit-transform:translateY(2000px);
   } 100%{
-    -webkit-transform:translateY(-200px);
-  }
-}
-
-@keyframes third-balloon-rise {
-  0%{
-    -webkit-transform:translateY(3000px);
-  } 100%{
-    -webkit-transform:translateY(-100px);
-  }
-}
-
-@keyframes fourth-balloon-rise {
-  0%{
-    -webkit-transform:translateY(800px);
-  } 100%{
-    -webkit-transform:translateY(-400px);
-  }
-}
-
-@keyframes fifth-balloon-rise {
-  0%{
-    -webkit-transform:translateY(1500px);
-  } 100%{
-    -webkit-transform:translateY(-300px);
-  }
-}
-
-@keyframes sixth-balloon-rise {
-  0%{
-    -webkit-transform:translateY(1700px);
-  } 100%{
-    -webkit-transform:translateY(-500px);
-  }
-}
-
-@keyframes seventh-balloon-rise {
-  0%{
-    -webkit-transform:translateY(1800px);
-  } 100%{
-    -webkit-transform:translateY(-800px);
+    -webkit-transform:translateY(0%);
   }
 }
 
