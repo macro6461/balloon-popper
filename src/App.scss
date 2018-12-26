@@ -35,7 +35,6 @@
   text-align: center;
   display: block;
   margin:auto;
-  width:1000px;
 }
 
 .parentBalloonContainer{
@@ -347,4 +346,77 @@
   width: 200px;
   position: absolute;
   right: 10px;
+}
+
+.timer{
+  background-color: Transparent;
+  width: 200px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  border: none;
+  cursor: pointer;
+  color: black;
+  outline: none;
+}
+
+button.pulsate {
+  background-color: Transparent;
+  border: none;
+  // padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 25px;
+  // background: #2A4B8D;
+}
+
+/* Ripple magic */
+button.pulsate{
+  // position: relative;
+  // overflow: hidden;
+}
+
+button.pulsate:focus{
+  background-color: Transparent;
+  text-decoration: none;
+  outline: none;
+}
+
+button.pulsate:after {
+  background-color: Transparent;
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 50%;
+  height: 50%;
+  background: rgba(51, 102, 204, 0.9);
+  opacity: 0;
+  border-radius: 100%;
+  transform-origin: 50% 50%;
+
+}
+
+@keyframes ripple {
+  0%, 35% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(4);
+  }
+}
+
+button.pulsate::after {
+  animation: ripple 1s ease-out;
+    color: white;
 }

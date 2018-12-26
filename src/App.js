@@ -4,23 +4,35 @@ import './App.scss';
 // import style from './App.less'
 
 import RedBalloon from './balloons/RedBalloon'
-import BlueBalloon from './balloons/BlueBalloon'
-import YellowBalloon from './balloons/YellowBalloon'
-import GreenBalloon from './balloons/GreenBalloon'
-import OrangeBalloon from './balloons/OrangeBalloon'
-import IndigoBalloon from './balloons/IndigoBalloon'
-import VioletBalloon from './balloons/VioletBalloon'
+import Timer from './Timer'
 
 class App extends Component {
 
   state ={
     total: 0,
-    start: false
+    start: false,
+    time: 0,
+    myVar: '',
+    timerClass: 'timer'
+  }
+
+  startTime = () =>{
+    this.setState({
+      time: this.runTimer()
+    })
+  }
+
+  componentDidMount = () =>{
+
+  }
+
+  runTimer = () =>{
+      this.setState({
+        time: this.state.time += 1
+      })
   }
 
   popBalloon = (e) =>{
-
-    debugger
 
     var balloon
     if (e.target.className === "balloonSpanOp" || e.target.className === "balloonSpanNum" ){
@@ -41,8 +53,14 @@ class App extends Component {
   onStart=()=>{
     this.setState({
       start: true,
-      total: 0
-    })
+      total: 0,
+      myVar: setInterval(this.runTimer, 1000),
+      timerClass: 'timer pulsate'
+    },()=>{setTimeout(()=>{
+      this.setState({
+        timerClass: 'timer'
+      })
+    }, 2000)})
   }
 
   calcPoints = (x, y) =>{
@@ -64,16 +82,25 @@ class App extends Component {
   }
 
   restart = () =>{
+    var clearTimer = this.state.myVar
     this.setState({
       start: false,
-      total: 0
+      total: 0,
+      time: 0
+    }, ()=>{
+
+      clearInterval(clearTimer)
     })
   }
 
   resetStart = () =>{
     this.setState({
       start: true
-    })
+    },()=>{setTimeout(()=>{
+      this.setState({
+        timerClass: 'timer'
+      })
+    }, 5000)})
   }
 
   generatePlusOrMinus = () =>{
@@ -97,6 +124,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Balloon Boi</h1>
+        <Timer time={this.state.time} passedClassName={this.state.timerClass}/>
         <div style={{height: 100 + 'px'}}>
           <div className="headContainer">
             <div className="startBtn" onClick={startBtnAction}>{startBtntext}</div>
@@ -108,7 +136,7 @@ class App extends Component {
            <div className="balloonContainer">
              {this.state.start
                ? <div>
-               
+
                    <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
                    <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
                    <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
