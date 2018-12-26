@@ -11,7 +11,8 @@ class RedBalloon extends Component {
     operator: '',
     leftStyle: 0,
     topStyle: 0,
-    timer: 0,
+    intervalTimer: 0,
+    animationDur: 0,
     colorOpts: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
     colorChoice: ''
   }
@@ -19,15 +20,20 @@ class RedBalloon extends Component {
   componentDidMount = () =>{
     this.changeOp()
     this.randomLeft()
+
     setInterval(()=>{
-        this.setState({
-          displayStyle: 'none',
-        })
-        setTimeout(()=>{
-        this.refresh()
-      }, this.state.timer)
-        console.log(this.state.visibilityDisplay)
+      this.refresh()
     }, 10000)
+  }
+
+  setNewTimeout = () =>{
+    setTimeout(()=>{
+      this.setState({
+        displayStyle: 'none',
+      })
+      console.log('interval: ' + this.state.intervalTimer)
+      console.log('animationDur: ' + this.state.animationDur)
+    }, this.state.intervalTimer)
   }
 
   refresh = () =>{
@@ -38,11 +44,12 @@ class RedBalloon extends Component {
       operator: '',
       leftStyle: 0,
       topStyle: 0,
-      timer: 0,
-    }, ()=>{
-      this.changeOp()
-      this.randomLeft()
+      intervalTimer: 0,
+      animationDur: 0,
     })
+    this.changeOp()
+    this.randomLeft()
+    this.setNewTimeout()
   }
 
   changeOp = () =>{
@@ -79,8 +86,12 @@ class RedBalloon extends Component {
           leftStyle: Math.floor(Math.random() * 700) + 1,
           topStyle: Math.floor(Math.random() * -300) + -450,
           colorChoice: this.chooseColor(),
-          timer: Math.floor(Math.random() * 10) + 7
-      }, ()=>{console.log(this.state.topStyle)})
+          animationDur: Math.floor(Math.random() * 10) + 10,
+      }, ()=>{
+        this.setState({
+          intervalTimer: this.state.animationDur * 1000
+        })
+      })
   }
 
   render() {
@@ -89,7 +100,7 @@ class RedBalloon extends Component {
 
     return (
 
-        <div className='balloon' style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle}}>
+        <div className='balloon' style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle, animation: `${this.state.animationDur}s ease balloon-rise`}}>
 
         {this.state.popped
           ? <p style={{position: 'absolute'}}>POPPED</p>

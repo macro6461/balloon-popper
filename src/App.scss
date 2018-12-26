@@ -20,16 +20,9 @@
 
 .balloon{
   position: absolute;
-  top: -100px;
+  top: -50px;
   animation: balloon-rise 10s;
 }
-
-// @for $i from 1 through 41 {
-//   .balloon:nth-child(#{$i}){
-//     animation-delay: ($i * -.06s);
-//     transform: translateY(1000px);
-//   }
-// }
 
 .App {
   text-align: center;
