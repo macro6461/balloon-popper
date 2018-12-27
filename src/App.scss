@@ -20,8 +20,7 @@
 
 .balloon{
   position: absolute;
-  top: -50px;
-  animation: balloon-rise 10s;
+  top: -200px;
 }
 
 .App {
@@ -81,7 +80,6 @@
 .redBalloon{
   width:60px;
   height:60px;
-  left: 52px;
   background-color: red;
   box-shadow:inset 17px 7px 10px red;
 }
@@ -107,7 +105,6 @@
 .orangeBalloon{
   width:60px;
   height:60px;
-  left: 12px;
   background-color: orange;
   box-shadow:inset 17px 7px 10px orange;
 }
@@ -116,17 +113,16 @@
   color:orange;
   position:absolute;
   bottom:-14px;
-  /* left: 52px; */
   content:"▲";
   font-size:1em;
 }
 
-.orangeBalloon div:nth-child(1) .balloonSpanOp, .balloonSpanNum {
-  top: 30% !important;
+.orangeBalloon div:nth-child(1) .balloonSpanOp, .redBalloon div:nth-child(1) .balloonSpanNum {
+  top: 40% !important;
 }
 
 .orangeBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -10px;
+  margin-left: -2px;
 }
 
 /* -------------------- YELLOW BALLOON STYLES -------------------- */
@@ -134,7 +130,6 @@
 .yellowBalloon{
   width:60px;
   height:60px;
-  left: 300px;
   background-color: yellow;
   box-shadow:inset 17px 7px 10px yellow;
 }
@@ -152,21 +147,16 @@
 }
 
 .yellowBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -10px;
-}
-
-.yellowBalloon div:nth-child(1) .balloonSpanOp{
-  margin-left: -32px;
+  margin-left: -2px;
 }
 
 /* -------------------- GREEN BALLOON STYLES -------------------- */
 
 .greenBalloon{
-  background-color: green;
-  box-shadow:inset 17px 7px 10px green;
   width:60px;
   height:60px;
-  left: 202px;
+  background-color: green;
+  box-shadow:inset 17px 7px 10px green;
 }
 
 .greenBalloon:before {
@@ -177,47 +167,37 @@
   font-size:1em;
 }
 
-.greenBalloon div:nth-child(1) .balloonSpanOp, .balloonSpanNum {
-  top: 30% !important;
+.greenBalloon div:nth-child(1) .balloonSpanOp, .greenBalloon div:nth-child(1) .balloonSpanNum {
+  top: 40% !important;
 }
 
 .greenBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -10px;
-}
-
-.greenBalloon div:nth-child(1) .balloonSpanOp{
-  margin-left: -30px;
+  margin-left: -2px;
 }
 
 /* -------------------- BLUE BALLOON STYLES -------------------- */
 
 .blueBalloon{
-  background-color: blue;
-  box-shadow:inset 17px 7px 10px blue;
   width:60px;
   height:60px;
-  left: 12px;
+  background-color: blue;
+  box-shadow:inset 17px 7px 10px blue;
 }
 
 .blueBalloon:before {
   color:blue;
   position:absolute;
   bottom:-14px;
-  left: 34px;
   content:"▲";
   font-size:1em;
 }
 
-.blueBalloon div:nth-child(1) .balloonSpanOp, .balloonSpanNum {
-  top: 30% !important;
+.blueBalloon div:nth-child(1) .balloonSpanOp, .blueBalloon div:nth-child(1) .balloonSpanNum {
+  top: 40% !important;
 }
 
 .blueBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -10px;
-}
-
-.blueBalloon div:nth-child(1) .balloonSpanOp{
-  margin-left: -25px;
+  margin-left: -2px;
 }
 
 /* -------------------- INDIGO BALLOON STYLES -------------------- */
@@ -225,7 +205,6 @@
 .indigoBalloon{
   width:60px;
   height:60px;
-  left: 82px;
   background-color: indigo;
   box-shadow:inset 17px 7px 10px indigo;
 }
@@ -234,7 +213,6 @@
   color:indigo;
   position:absolute;
   bottom:-14px;
-
   content:"▲";
   font-size:1em;
 }
@@ -244,42 +222,32 @@
 }
 
 .indigoBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -10px;
-}
-
-.indigoBalloon div:nth-child(1) .balloonSpanOp{
-  margin-left: -32px;
+  margin-left: -2px;
 }
 
 /* -------------------- VIOLET BALLOON STYLES -------------------- */
 
 .violetBalloon{
-  background-color: violet;
-  box-shadow:inset 17px 7px 10px violet;
   width:60px;
   height:60px;
-  left: 102px;
+  background-color: violet;
+  box-shadow:inset 17px 7px 10px violet;
 }
 
 .violetBalloon:before {
-  color: violet;
+  color:violet;
   position:absolute;
   bottom:-14px;
-
   content:"▲";
   font-size:1em;
 }
 
 .violetBalloon div:nth-child(1) .balloonSpanOp, .violetBalloon div:nth-child(1) .balloonSpanNum {
-  top: 30% !important;
+  top: 40% !important;
 }
 
 .violetBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -10px;
-}
-
-.violetBalloon div:nth-child(1) .balloonSpanOp{
-  margin-left: -30px;
+  margin-left: -2px;
 }
 
 /*-----------------END INDIVIDUAL BALLOON STYLES---------------*/

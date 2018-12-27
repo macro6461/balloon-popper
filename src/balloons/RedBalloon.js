@@ -11,7 +11,7 @@ class RedBalloon extends Component {
     operator: '',
     leftStyle: 0,
     topStyle: 0,
-    intervalTimer: 0,
+    timer: 0,
     animationDur: 0,
     colorOpts: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
     colorChoice: ''
@@ -20,36 +20,29 @@ class RedBalloon extends Component {
   componentDidMount = () =>{
     this.changeOp()
     this.randomLeft()
-
-    setInterval(()=>{
-      this.refresh()
-    }, 10000)
-  }
-
-  setNewTimeout = () =>{
     setTimeout(()=>{
-      this.setState({
-        displayStyle: 'none',
-      })
-      console.log('interval: ' + this.state.intervalTimer)
-      console.log('animationDur: ' + this.state.animationDur)
-    }, this.state.intervalTimer)
+      setInterval(()=>{
+          this.setState({
+            displayStyle: 'none',
+          }, ()=>{this.refresh()})
+      }, 20000 )
+    }, 1100)
   }
 
   refresh = () =>{
     this.setState({
       popped: false,
-      displayStyle:'block',
+      displayStyle: 'none',
       visibilityDisplay: 'visible',
       operator: '',
       leftStyle: 0,
       topStyle: 0,
-      intervalTimer: 0,
+      timer: 0,
       animationDur: 0,
+    }, ()=>{
+      this.changeOp()
+      this.randomLeft()
     })
-    this.changeOp()
-    this.randomLeft()
-    this.setNewTimeout()
   }
 
   changeOp = () =>{
@@ -82,16 +75,23 @@ class RedBalloon extends Component {
   }
 
   randomLeft = () =>{
+    var val = Math.floor(Math.random() * 10) + 10
+    console.log(this.state.animationDur)
       this.setState({
           leftStyle: Math.floor(Math.random() * 700) + 1,
           topStyle: Math.floor(Math.random() * -300) + -450,
           colorChoice: this.chooseColor(),
-          animationDur: Math.floor(Math.random() * 10) + 10,
-      }, ()=>{
-        this.setState({
-          intervalTimer: this.state.animationDur * 1000
-        })
+          timer: val * 1000,
+          animationDur: val
       })
+      setTimeout(()=>{this.setState({
+        displayStyle: 'block'
+      })}, 500)
+  }
+
+  setAnimDur = (x) =>{
+    console.log(x)
+    return x / 1000
   }
 
   render() {
@@ -103,8 +103,8 @@ class RedBalloon extends Component {
         <div className='balloon' style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle, animation: `${this.state.animationDur}s ease balloon-rise`}}>
 
         {this.state.popped
-          ? <p style={{position: 'absolute'}}>POPPED</p>
-          : <div className={balloonColorClass} onClick={this.popBalloon} style={{left: this.state.leftStyle, top: this.state.topStyle}}>
+          ? <p style={{position: 'absolute'}}></p>
+          : <div className={balloonColorClass} onClick={this.popBalloon} style={{left: this.state.leftStyle}}>
               <div className="spanDiv">
                 <span className="balloonSpanOp">{this.state.operator}</span>
                 <span className="balloonSpanNum">5</span>
