@@ -362,6 +362,7 @@ button.pulsate::after {
    display: flex;
    align-items: center;
    justify-content: center;
+   font-size: 100px;
 }
 
 .lostBalloon{
@@ -373,7 +374,7 @@ button.pulsate::after {
   position:absolute;
   bottom:-35px;
   content:"▲";
-  font-size:3em;
+  font-size:45px !important;
   transform-origin : 50% 100%;
 }
 
@@ -384,6 +385,7 @@ button.pulsate::after {
   position: fixed;
   bottom: 1%;
   left: 3%;
+  z-index: 100;
 }
 
 @keyframes lost-balloon-explode {
