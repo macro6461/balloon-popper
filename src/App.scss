@@ -56,11 +56,18 @@
 .spanDiv{
   width: 100%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+
 }
 
 /* -------------------- UNIVERSAL BALLOON STYLES -------------------- */
 
-.redBalloon, .blueBalloon, .greenBalloon, .indigoBalloon, .orangeBalloon, .violetBalloon, .yellowBalloon {
+.redBalloon, .blueBalloon, .greenBalloon, .indigoBalloon, .orangeBalloon, .violetBalloon, .yellowBalloon, .blackBalloon {
+  width:60px;
+  height:60px;
   text-align: center;
   border-radius:0;
   border-radius:80% 80% 80% 80%;
@@ -78,8 +85,6 @@
 /* -------------------- RED BALLOON STYLES -------------------- */
 
 .redBalloon{
-  width:60px;
-  height:60px;
   background-color: red;
   box-shadow:inset 17px 7px 10px red;
 }
@@ -92,19 +97,9 @@
   font-size:1em;
 }
 
-.redBalloon div:nth-child(1) .balloonSpanOp, .redBalloon div:nth-child(1) .balloonSpanNum {
-  top: 40% !important;
-}
-
-.redBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -2px;
-}
-
 /* -------------------- ORANGE BALLOON STYLES -------------------- */
 
 .orangeBalloon{
-  width:60px;
-  height:60px;
   background-color: orange;
   box-shadow:inset 17px 7px 10px orange;
 }
@@ -117,19 +112,9 @@
   font-size:1em;
 }
 
-.orangeBalloon div:nth-child(1) .balloonSpanOp, .redBalloon div:nth-child(1) .balloonSpanNum {
-  top: 40% !important;
-}
-
-.orangeBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -2px;
-}
-
 /* -------------------- YELLOW BALLOON STYLES -------------------- */
 
 .yellowBalloon{
-  width:60px;
-  height:60px;
   background-color: yellow;
   box-shadow:inset 17px 7px 10px yellow;
 }
@@ -142,19 +127,10 @@
   font-size:1em;
 }
 
-.yellowBalloon div:nth-child(1) .balloonSpanOp, .yellowBalloon div:nth-child(1) .balloonSpanNum {
-  top: 40% !important;
-}
-
-.yellowBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -2px;
-}
 
 /* -------------------- GREEN BALLOON STYLES -------------------- */
 
 .greenBalloon{
-  width:60px;
-  height:60px;
   background-color: green;
   box-shadow:inset 17px 7px 10px green;
 }
@@ -167,19 +143,10 @@
   font-size:1em;
 }
 
-.greenBalloon div:nth-child(1) .balloonSpanOp, .greenBalloon div:nth-child(1) .balloonSpanNum {
-  top: 40% !important;
-}
-
-.greenBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -2px;
-}
 
 /* -------------------- BLUE BALLOON STYLES -------------------- */
 
 .blueBalloon{
-  width:60px;
-  height:60px;
   background-color: blue;
   box-shadow:inset 17px 7px 10px blue;
 }
@@ -192,19 +159,10 @@
   font-size:1em;
 }
 
-.blueBalloon div:nth-child(1) .balloonSpanOp, .blueBalloon div:nth-child(1) .balloonSpanNum {
-  top: 40% !important;
-}
-
-.blueBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -2px;
-}
 
 /* -------------------- INDIGO BALLOON STYLES -------------------- */
 
 .indigoBalloon{
-  width:60px;
-  height:60px;
   background-color: indigo;
   box-shadow:inset 17px 7px 10px indigo;
 }
@@ -217,19 +175,9 @@
   font-size:1em;
 }
 
-.indigoBalloon div:nth-child(1) .balloonSpanOp, .indigoBalloon div:nth-child(1) .balloonSpanNum {
-  top: 40% !important;
-}
-
-.indigoBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -2px;
-}
-
 /* -------------------- VIOLET BALLOON STYLES -------------------- */
 
 .violetBalloon{
-  width:60px;
-  height:60px;
   background-color: violet;
   box-shadow:inset 17px 7px 10px violet;
 }
@@ -242,12 +190,20 @@
   font-size:1em;
 }
 
-.violetBalloon div:nth-child(1) .balloonSpanOp, .violetBalloon div:nth-child(1) .balloonSpanNum {
-  top: 40% !important;
+/* -------------------- BLACK BALLOON STYLES -------------------- */
+
+.blackBalloon{
+  background-color: black;
+  box-shadow:inset 17px 7px 10px black;
+  color: white !important;
 }
 
-.violetBalloon div:nth-child(1) .balloonSpanNum{
-  margin-left: -2px;
+.blackBalloon:before {
+  color:black;
+  position:absolute;
+  bottom:-14px;
+  content:"▲";
+  font-size:1em;
 }
 
 /*-----------------END INDIVIDUAL BALLOON STYLES---------------*/
@@ -272,24 +228,24 @@
 }
 
 .balloonSpanOp {
-  display: inline-block;
-  -webkit-text-stroke-width: 1px;
-   -webkit-text-stroke-color: black;
-   font-size: 30px;
+  // display: inline-block;
+  // -webkit-text-stroke-width: 1px;
+  //  -webkit-text-stroke-color: black;
+   font-size: 20px;
   font-weight: 800;
-  position: absolute;
-  top: 40%;
-  margin-left: -25px;
+  // position: absolute;
+  // top: 40%;
+  // margin-left: -25px;
 }
 
 .balloonSpanNum {
-  display: inline-block;
-  -webkit-text-stroke-width: 1px;
-   -webkit-text-stroke-color: black;
-   font-size: 30px;
-  position: absolute;
-  top: 40%;
-  font-weight: 800;
+  // display: inline-block;
+  // -webkit-text-stroke-width: 1px;
+  //  -webkit-text-stroke-color: black;
+   font-size: 20px;
+  // position: absolute;
+  // top: 40%;
+    font-weight: 800;
 }
 
 .startBtn{
@@ -380,4 +336,61 @@ button.pulsate:after {
 button.pulsate::after {
   animation: ripple 1s ease-out;
     color: white;
+}
+
+.lostBalloon{
+  width: 800px;
+  height: 800px;
+  position: fixed;
+  bottom: 5%;
+  left: 15%;
+  background-color: black;
+  z-index: 100;
+  text-align: center;
+  border-radius:0;
+  border-radius:80% 80% 80% 80%;
+  margin: 0 auto;
+  padding:10px;
+  -webkit-transform-origin: bottom center;
+  animation: balloon-bounce 6s ease-in-out infinite;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+   border: solid 1px black;
+   display: flex;
+   text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.lostBalloon{
+  box-shadow:inset 17px 7px 10px black;
+}
+
+.lostBalloon:before {
+  color:black;
+  position:absolute;
+  bottom:-35px;
+  content:"▲";
+  font-size:3em;
+  transform-origin : 50% 100%;
+}
+
+.lostBalloonContainer{
+  width: 80%;
+  height: 80%;
+  animation: lost-balloon-explode 3s;
+  position: fixed;
+  bottom: 1%;
+  left: 3%;
+}
+
+@keyframes lost-balloon-explode {
+  0%{
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

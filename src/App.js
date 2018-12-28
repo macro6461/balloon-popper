@@ -5,6 +5,7 @@ import './App.scss';
 
 import RedBalloon from './balloons/RedBalloon'
 import Timer from './Timer'
+import YouLose from './balloons/YouLose'
 
 class App extends Component {
 
@@ -14,6 +15,7 @@ class App extends Component {
     time: 0,
     myVar: '',
     timerClass: 'timer',
+    lost: false
   }
 
   startTime = () =>{
@@ -33,7 +35,6 @@ class App extends Component {
   }
 
   popBalloon = (e) =>{
-
     var balloon
     if (e.target.className === "balloonSpanOp" || e.target.className === "balloonSpanNum" ){
       balloon = e.target.parentElement.parentElement
@@ -46,7 +47,7 @@ class App extends Component {
     var points = parseInt(balloon.children[0].children[1].innerText)
     var op = balloon.children[0].children[0].innerText
 
-    this.calcPoints(points, op)
+    isNaN(points) ? this.youLose() : this.calcPoints(points, op)
 
   }
 
@@ -55,12 +56,20 @@ class App extends Component {
       start: true,
       total: 0,
       myVar: setInterval(this.runTimer, 1000),
+      lost: false,
       timerClass: 'timer pulsate'
     },()=>{setTimeout(()=>{
       this.setState({
         timerClass: 'timer'
       })
     }, 2000)})
+  }
+
+  youLose = () =>{
+    this.setState({
+      lost: true
+    })
+    this.restart()
   }
 
   calcPoints = (x, y) =>{
@@ -86,21 +95,22 @@ class App extends Component {
     this.setState({
       start: false,
       total: 0,
-      time: 0
+      time: 0,
     }, ()=>{
-
       clearInterval(clearTimer)
     })
   }
 
   resetStart = () =>{
     this.setState({
-      start: true
+      start: true,
+      lost: false
     },()=>{setTimeout(()=>{
       this.setState({
         timerClass: 'timer'
       })
     }, 5000)})
+
   }
 
   generatePlusOrMinus = () =>{
@@ -118,11 +128,12 @@ class App extends Component {
       startBtntext = 'Start'
     }
 
-    // <div style={{position: 'absolute', top: 250 + 'px', left: 40 + '%', width: 100 + 'px', height: 100 + 'px', backgroundColor: 'black'}}></div>
-
-
     return (
       <div className="App">
+        {this.state.lost
+          ? <YouLose />
+          : null
+        }
         <h1>Balloon Boi</h1>
         <Timer time={this.state.time} passedClassName={this.state.timerClass}/>
         <div style={{height: 100 + 'px'}}>
