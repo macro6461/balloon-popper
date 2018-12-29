@@ -8,7 +8,7 @@ class YouLose extends Component {
 
     return(
       <div className='lostBalloonContainer'>
-        <div className='lostBalloon'>YOU'RE BALLOON IS POPPED!</div>
+        <div className='lostBalloon'>Your balloon is POPPED!</div>
       </div>
     )
   }
