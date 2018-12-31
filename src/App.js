@@ -7,6 +7,8 @@ import RedBalloon from './balloons/RedBalloon'
 import Timer from './Timer'
 import YouLose from './balloons/YouLose'
 
+import balloonImg from './balloon-img-1.svg'
+
 class App extends Component {
 
   state ={
@@ -37,18 +39,19 @@ class App extends Component {
 
   popBalloon = (e) =>{
     var balloon
-    if (e.target.classList.value === "balloonSpanOp" || e.target.classList.value === "balloonSpanNum" ){
+    if (e.target.className === "balloonSpanOp" || e.target.className === "balloonSpanNum" ){
       balloon = e.target.parentElement.parentElement
     } else if (e.target.className === "spanDiv") {
       balloon = e.target.parentElement
-    } else if (e.target.classList.value === "svgBody" ){
-      balloon = e.target.parentElement.parentElement.parentElement.parentElement
+    } else {
+      balloon = e.target
     }
 
-    var points = parseInt(balloon.children[1].children[1].innerText)
-    var op = balloon.children[1].children[0].innerText
-    debugger
+    var points = parseInt(balloon.children[0].children[1].innerText)
+    var op = balloon.children[0].children[0].innerText
+
     isNaN(points) ? this.youLose() : this.calcPoints(points, op)
+
   }
 
   onStart=()=>{
@@ -164,6 +167,33 @@ class App extends Component {
            <div className="balloonContainer">
              {this.state.start
                ? <div>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+                   <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
                    <RedBalloon popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
                 </div>
             : null
