@@ -25,9 +25,9 @@ class Timer extends Component {
   }
 
   render() {
-    var time = this.calcTime(this.props.time)
+
     return(
-      <button className={this.props.passedClassName}>{time}</button>
+      <button className={this.props.passedClassName}>{this.props.time}</button>
     )
   }
 }

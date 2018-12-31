@@ -20,7 +20,12 @@
 
 .balloon{
   position: absolute;
-  top: -200px;
+  // top: -320px;
+}
+
+.svgBalloonContainer{
+  position: absolute;
+animation: balloon-bounce 6s ease-in-out infinite;
 }
 
 .App {
@@ -54,13 +59,15 @@
 }
 
 .spanDiv{
-  width: 100%;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-
+  width: 60px;
+    height: 40px;
+    position: absolute;
+    top: 120px;
+    left: 80px;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-align: center;
 }
 
 /* -------------------- UNIVERSAL BALLOON STYLES -------------------- */
@@ -75,7 +82,6 @@
   position: absolute;
   padding:10px;
   -webkit-transform-origin: bottom center;
-  animation: balloon-bounce 6s ease-in-out infinite;
   color: white;
   -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: black;
@@ -87,6 +93,7 @@
 .redBalloon{
   background-color: red;
   box-shadow:inset 17px 7px 10px red;
+  fill: red;
 }
 
 .redBalloon:before {
@@ -102,6 +109,7 @@
 .orangeBalloon{
   background-color: orange;
   box-shadow:inset 17px 7px 10px orange;
+  fill: orange;
 }
 
 .orangeBalloon:before {
@@ -115,6 +123,7 @@
 /* -------------------- YELLOW BALLOON STYLES -------------------- */
 
 .yellowBalloon{
+  fill: yellow;
   background-color: yellow;
   box-shadow:inset 17px 7px 10px yellow;
 }
@@ -131,6 +140,7 @@
 /* -------------------- GREEN BALLOON STYLES -------------------- */
 
 .greenBalloon{
+  fill: green;
   background-color: green;
   box-shadow:inset 17px 7px 10px green;
 }
@@ -147,6 +157,7 @@
 /* -------------------- BLUE BALLOON STYLES -------------------- */
 
 .blueBalloon{
+  fill: blue;
   background-color: blue;
   box-shadow:inset 17px 7px 10px blue;
 }
@@ -163,6 +174,7 @@
 /* -------------------- INDIGO BALLOON STYLES -------------------- */
 
 .indigoBalloon{
+  fill: indigo;
   background-color: indigo;
   box-shadow:inset 17px 7px 10px indigo;
 }
@@ -178,6 +190,7 @@
 /* -------------------- VIOLET BALLOON STYLES -------------------- */
 
 .violetBalloon{
+  fill: violet;
   background-color: violet;
   box-shadow:inset 17px 7px 10px violet;
 }
@@ -193,6 +206,7 @@
 /* -------------------- BLACK BALLOON STYLES -------------------- */
 
 .blackBalloon{
+  fill: black;
   background-color: black;
   box-shadow:inset 17px 7px 10px black;
   color: white !important;
@@ -215,7 +229,8 @@
 
 @keyframes balloon-rise{
   0%{
-    -webkit-transform:translateY(2000px);
+    -webkit-transform:translateY(0%);
+    // -webkit-transform:translateY(2000px);
   } 100%{
     -webkit-transform:translateY(0%);
   }
@@ -263,13 +278,44 @@
   margin-top: -15px;
 }
 
-.startBtn{
+.startBtn.green{
   background-color: green;
   box-shadow:inset 17px 7px 10px green;
 }
 
-.startBtn:before {
+.startBtn.green:before {
   color:green;
+  position:absolute;
+  top:38px;
+  content:"▲";
+  font-size:1em;
+}
+
+.balloonString {
+  animation: twirl 6s cubic-bezier(.36,.07,.19,.97) both ;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  // animation: twirl 6s ease-in-out;
+}
+
+.smallSvg{
+  width: 240px;
+  height: 320px;
+  position: absolute;
+}
+
+svg .red {
+  fill: red;
+}
+
+.startBtn.red{
+  background-color: red;
+  box-shadow:inset 17px 7px 10px red;
+}
+
+.startBtn.red:before {
+  color:red;
   position:absolute;
   top:38px;
   content:"▲";
@@ -411,5 +457,23 @@ button.pulsate::after {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes twirl {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 }

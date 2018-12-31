@@ -8,7 +8,11 @@ class YouLose extends Component {
 
     return(
       <div className='lostBalloonContainer'>
-        <div className='lostBalloon'>Your balloon is POPPED!</div>
+        <div className='lostBalloon'>
+        <p style={{color: 'white', display: 'block', margin: 'auto', width: 500 + 'px'}}>Your balloon is POPPED!</p>
+        <br/>
+        <p style={{color: 'white', display: 'block', margin: 'auto'}}>{this.props.finalTime}</p>
+        </div>
       </div>
     )
   }
