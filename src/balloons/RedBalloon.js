@@ -79,8 +79,8 @@ class RedBalloon extends Component {
   }
 
   chooseColor = () =>{
-    var num = Math.floor(Math.random() * 10) + 1
-    if (num === 2){
+    var num = Math.floor(Math.random() * 2) + 1
+    if (num === 2 ){
       return 'black'
     } else {
       return this.state.colorOpts[Math.floor(Math.random() * this.state.colorOpts.length)]
