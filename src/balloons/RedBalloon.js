@@ -89,9 +89,16 @@ class RedBalloon extends Component {
 
   randomLeft = () =>{
     var val = Math.floor(Math.random() * 10) + 10
+    var leftNum
+
+    if (window.innerWidth <= 499){
+      leftNum = 250
+    } else {
+      leftNum = 700
+    }
 
       this.setState({
-          leftStyle: Math.floor(Math.random() * 700) + 1,
+          leftStyle: Math.floor(Math.random() * leftNum) + 1,
           colorChoice: this.chooseColor(),
           animationDur: val,
           numChoice: this.changeNum()
