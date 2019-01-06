@@ -23,6 +23,7 @@ class App extends Component {
     myVar: '',
     timerClass: 'timer',
     lost: false,
+    passedTotal: 0
   }
 
   startTime = () =>{
@@ -38,7 +39,7 @@ class App extends Component {
       targ = e.target.parentElement.parentElement
     } else if (e.target.classList.value.includes('Balloon')){
       targ = e.target.parentElement
-    } else if (e.target.classList.value.includes('balloonSpan')){
+    } else if (e.target.classList.value.includes('balSpan')){
       targ = e.target.parentElement.parentElement.parentElement
     }
 
@@ -157,21 +158,25 @@ class App extends Component {
   }
 
   popBalloon = (e) =>{
-    debugger
     var balloon
-    if (e.target.className === "balloonSpanOp" || e.target.className === "balloonSpanNum" ){
+
+    if (e.target.className === "balSpanOp" || e.target.className === "balSpanNum" ){
       balloon = e.target.parentElement.parentElement
     } else if (e.target.className === "spanDiv") {
       balloon = e.target.parentElement
+    } else if (e.target.tagName === 'svg'){
+      balloon = e.target.parentElement.parentElement.parentElement
     } else {
       balloon = e.target
     }
-    var points = parseInt(balloon.children[0].children[1].innerText)
-    var op = balloon.children[0].children[0].innerText
 
-    debugger
-
-    isNaN(points) ? this.youLose() : this.calcPoints(points, op)
+    if (balloon.classList.value.includes('black') || balloon.children === undefined || balloon.children[0].children === undefined ){
+      this.youLose()
+    } else {
+      var points = parseInt(balloon.children[0].children[1].innerText)
+      var op = balloon.children[0].children[0].innerText
+      this.calcPoints(points, op)
+    }
 
   }
 
@@ -192,7 +197,8 @@ class App extends Component {
 
   youLose = () =>{
     this.setState({
-      lost: true
+      lost: true,
+      passedTotal: this.state.total
     })
     this.restart()
   }
@@ -230,7 +236,8 @@ class App extends Component {
   resetStart = () =>{
     this.setState({
       start: true,
-      lost: false
+      lost: false,
+      passedTotal: 0
     },()=>{setTimeout(()=>{
       this.setState({
         timerClass: 'timer'
@@ -273,7 +280,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.lost
-          ? <YouLose finalTime={this.state.finalTime}/>
+          ? <YouLose finalTime={this.state.finalTime} finalScore={this.state.passedTotal} onClick={this.onStart}/>
           : null
         }
         <br></br>
@@ -285,12 +292,12 @@ class App extends Component {
         <div style={{height: 100 + 'px'}}>
           <div className="headContainer">
             <div className={startClass} onClick={startBtnAction}>{startBtntext}</div>
-            <div className="balloonTotal" onChange={this.handleOnChange()}>{this.state.total}</div>
+            <div className="balTotal" onChange={this.handleOnChange()}>{this.state.total}</div>
           </div>
         </div>
-        <div className="parentBalloonContainer">
+        <div className="parentBalContainer">
 
-           <div className="balloonContainer">
+           <div className="balContainer">
              {this.state.start
                ? <div>
                    <RedBalloon id='balloon1' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>

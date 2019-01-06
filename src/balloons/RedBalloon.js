@@ -110,7 +110,7 @@ class RedBalloon extends Component {
 
   checkDiv = (id) =>{
     var bottom = document.getElementById(`${id}`).getBoundingClientRect().bottom
-    var otherBottom = document.getElementsByClassName('balloonContainer')[0].getBoundingClientRect().top - 120
+    var otherBottom = document.getElementsByClassName('balContainer')[0].getBoundingClientRect().top - 120
     if (bottom < otherBottom){
       console.log(bottom)
       console.log(otherBottom)
@@ -118,7 +118,9 @@ class RedBalloon extends Component {
       setTimeout(()=>{
         this.refresh()
         this.randomLeft()
-        document.getElementById(`${id}`).style.display = 'block'
+        if (document.getElementById(`${id}`)){
+          document.getElementById(`${id}`).style.display = 'block'
+        }
       }, 100)
     }
   }
@@ -141,14 +143,14 @@ class RedBalloon extends Component {
 
     return (
 
-        <div className='balloonPar' id={this.props.id} style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle, animation: `${this.state.animationDur}s ease balloon-rise`}}>
+        <div className='balPar' id={this.props.id} style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle, animation: `${this.state.animationDur}s ease balloon-rise`}}>
 
         {this.state.popped
           ? <p style={{position: 'absolute'}}></p>
           : <div className={balloonColorClass} onClick={this.popBalloon} style={{left: this.state.leftStyle}}>
               <div className="spanDiv">
-                <span className="balloonSpanOp">{spanDivOpContent}</span>
-                <span className="balloonSpanNum">{spanDivNumContent}</span>
+                <span className="balSpanOp">{spanDivOpContent}</span>
+                <span className="balSpanNum">{spanDivNumContent}</span>
               </div>
             </div>
         }

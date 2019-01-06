@@ -27,7 +27,7 @@ canvas {
   }
 }
 
-.innerBalloonContainer {
+.innerBalContainer {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -35,7 +35,7 @@ canvas {
 
 }
 
-.balloonPar{
+.balPar{
   position: absolute;
   top: -200px;
 }
@@ -46,7 +46,7 @@ canvas {
   margin:auto;
 }
 
-.parentBalloonContainer{
+.parentBalContainer{
   position: relative;
   width: 100%;
   height: 500px;
@@ -55,7 +55,7 @@ canvas {
   margin-top: 20px;
 }
 
-.balloonContainer{
+.balContainer{
   display: block;
   margin: auto;
   cursor: crosshair;
@@ -66,7 +66,7 @@ canvas {
   position: relative;
 }
 
-.innerBalloonContainer{
+.innerBalContainer{
   position: relative;
   animation: balloon-rise 6s ease-in-out;
 }
@@ -98,7 +98,7 @@ canvas {
   -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: black;
    border: solid 1px black;
-   bottom: -100px;
+   bottom: -50px;
 }
 
 /* -------------------- RED BALLOON STYLES -------------------- */
@@ -247,14 +247,14 @@ canvas {
   }
 }
 
-.balloonTotal{
+.balTotal{
   min-width: 50px;
   font-size: 30px;
   padding: 20px;
   padding-top: 10px;
 }
 
-.balloonSpanOp {
+.balSpanOp {
   // display: inline-block;
   // -webkit-text-stroke-width: 1px;
   //  -webkit-text-stroke-color: black;
@@ -265,7 +265,7 @@ canvas {
   // margin-left: -25px;
 }
 
-.balloonSpanNum {
+.balSpanNum {
   // display: inline-block;
   // -webkit-text-stroke-width: 1px;
   //  -webkit-text-stroke-color: black;
@@ -395,7 +395,7 @@ button.pulsate::after {
     color: white;
 }
 
-.lostBalloon{
+.lostBal{
   width: 800px;
   height: 800px;
   position: fixed;
@@ -419,14 +419,14 @@ button.pulsate::after {
    display: flex;
    align-items: center;
    justify-content: center;
-   font-size: 100px;
+
 }
 
-.lostBalloon{
+.lostBal{
   box-shadow:inset 17px 7px 10px black;
 }
 
-.lostBalloon:before {
+.lostBal:before {
   color:black;
   position:absolute;
   bottom:-35px;
@@ -435,7 +435,7 @@ button.pulsate::after {
   transform-origin : 50% 100%;
 }
 
-.lostBalloonContainer{
+.lostBalContainer{
   width: 80%;
   height: 80%;
   animation: lost-balloon-explode 3s;
@@ -445,6 +445,16 @@ button.pulsate::after {
   z-index: 100;
 }
 
+.finalDataContainer{
+  width: 100%;
+  color: white;
+  display: 'block';
+  margin: auto;
+  text-align: center;
+  -webkit-text-stroke-width: 0px;
+   -webkit-text-stroke-color: black;
+}
+
 @keyframes lost-balloon-explode {
   0%{
     transform: scale(0);
@@ -452,4 +462,18 @@ button.pulsate::after {
   100% {
     transform: scale(1);
   }
+}
+
+.finalPlayAgain{
+  background-color: green;
+  border-radius: 10px;
+  border: solid 1px white;
+  padding: 20px;
+  width: 150px;
+  cursor: pointer;
+  -webkit-text-stroke-width: 0px;
+   -webkit-text-stroke-color: black;
+   display: block;
+   margin: auto;
+   margin-top: 100px;
 }

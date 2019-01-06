@@ -7,11 +7,18 @@ class YouLose extends Component {
   render() {
 
     return(
-      <div className='lostBalloonContainer'>
-        <div className='lostBalloon'>
-        <p style={{color: 'white', display: 'block', margin: 'auto', width: 500 + 'px'}}>Your balloon is POPPED!</p>
-        <br/>
-        <p style={{color: 'white', display: 'block', margin: 'auto'}}>{this.props.finalTime}</p>
+      <div className='lostBalContainer'>
+        <div className='lostBal'>
+          <div className='finalDataContainer'>
+              <h1 style={{display: 'block', margin: 'auto'}}>Your balloon is POPPED!</h1>
+              <br/>
+              <p>TIME: {this.props.finalTime}</p>
+              <p>SCORE: {this.props.finalScore}</p>
+              <p>LIFETIME SCORE: {this.props.finalScore}</p>
+              <div className="finalPlayAgain" onClick={this.props.onClick}>
+                Play Again
+              </div>
+          </div>
         </div>
       </div>
     )
