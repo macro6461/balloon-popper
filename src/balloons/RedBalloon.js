@@ -7,6 +7,8 @@ import { faSkull } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faSkull)
 
+var myInterval = ''
+
 class RedBalloon extends Component {
 
   state = {
@@ -21,19 +23,14 @@ class RedBalloon extends Component {
     numberOpts: [5, 10, 15, 20, 25, 50],
     colorOpts: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
     colorChoice: '',
-    numChoice: 0
+    numChoice: 0,
+    id: this.props.id
   }
 
   componentDidMount = () =>{
     this.changeOp()
     this.randomLeft()
-    setTimeout(()=>{
-      setInterval(()=>{
-          this.setState({
-            displayStyle: 'none',
-          }, ()=>{this.refresh()})
-      }, 20000 )
-    }, 1100)
+    this.findDiv()
   }
 
   refresh = () =>{
@@ -53,7 +50,7 @@ class RedBalloon extends Component {
   }
 
   changeOp = () =>{
-    if (this.props.generatePlusOrMinus() == 1){
+    if (this.props.generatePlusOrMinus() === 1){
       this.setState({
         operator: '+'
       })
@@ -95,15 +92,35 @@ class RedBalloon extends Component {
 
       this.setState({
           leftStyle: Math.floor(Math.random() * 700) + 1,
-          topStyle: Math.floor(Math.random() * -300) + -450,
           colorChoice: this.chooseColor(),
-          timer: val * 1000,
           animationDur: val,
           numChoice: this.changeNum()
       })
-      setTimeout(()=>{this.setState({
-        displayStyle: 'block'
-      })}, 500)
+  }
+
+  findDiv = () =>{
+    var balloonId = this.state.id
+    var me = this
+    setInterval(()=>{
+      if (document.getElementById(`${me.props.id}`)){
+        me.checkDiv(me.props.id)
+      }
+    }, 200)
+  }
+
+  checkDiv = (id) =>{
+    var bottom = document.getElementById(`${id}`).getBoundingClientRect().bottom
+    var otherBottom = document.getElementsByClassName('balloonContainer')[0].getBoundingClientRect().top - 120
+    if (bottom < otherBottom){
+      console.log(bottom)
+      console.log(otherBottom)
+      document.getElementById(`${id}`).style.display = 'none'
+      setTimeout(()=>{
+        this.refresh()
+        this.randomLeft()
+        document.getElementById(`${id}`).style.display = 'block'
+      }, 100)
+    }
   }
 
   render() {
@@ -114,7 +131,7 @@ class RedBalloon extends Component {
 
     var spanDivNumContent
 
-    if (this.state.colorChoice == 'black'){
+    if (this.state.colorChoice === 'black'){
       spanDivOpContent = ''
       spanDivNumContent = <FontAwesomeIcon icon="skull" />
     } else {
@@ -124,7 +141,7 @@ class RedBalloon extends Component {
 
     return (
 
-        <div className='balloon' style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle, animation: `${this.state.animationDur}s ease balloon-rise`}}>
+        <div className='balloonPar' id={this.props.id} style={{visibility: this.state.visibilityDisplay, display: this.state.displayStyle, animation: `${this.state.animationDur}s ease balloon-rise`}}>
 
         {this.state.popped
           ? <p style={{position: 'absolute'}}></p>

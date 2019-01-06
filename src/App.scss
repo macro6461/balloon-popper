@@ -2,6 +2,23 @@
   box-sizing: border-box;
 }
 
+* {
+	margin: 0; padding: 0;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+canvas {
+	display: block;
+
+		width: 100%;
+	height: 100%;
+  position:absolute;
+}
+
 @keyframes square {
   @for $i from 1 through 41 {
     #{($i * 2%)} {
@@ -18,7 +35,7 @@
 
 }
 
-.balloon{
+.balloonPar{
   position: absolute;
   top: -200px;
 }
@@ -35,6 +52,7 @@
   height: 500px;
   display: block;
   margin: auto;
+  margin-top: 20px;
 }
 
 .balloonContainer{
@@ -80,6 +98,7 @@
   -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: black;
    border: solid 1px black;
+   bottom: -100px;
 }
 
 /* -------------------- RED BALLOON STYLES -------------------- */
@@ -232,6 +251,7 @@
   min-width: 50px;
   font-size: 30px;
   padding: 20px;
+  padding-top: 10px;
 }
 
 .balloonSpanOp {
@@ -267,7 +287,7 @@
   color: white;
   background-color: green;
   cursor: pointer;
-  margin-top: -15px;
+  margin-top: 10px;
 }
 
 .startBtn.green{
@@ -278,7 +298,7 @@
 .startBtn.green:before {
   color:green;
   position:absolute;
-  top:38px;
+  top:65px;
   content:"▲";
   font-size:1em;
 }
@@ -291,7 +311,7 @@
 .startBtn.red:before {
   color:red;
   position:absolute;
-  top:38px;
+  top:65px;
   content:"▲";
   font-size:1em;
 }
