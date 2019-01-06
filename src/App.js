@@ -170,7 +170,7 @@ class App extends Component {
       balloon = e.target
     }
 
-    if (balloon.classList.value.includes('black') || balloon.children === undefined || balloon.children[0].children === undefined ){
+    if (balloon.classList.value.includes('black') || balloon.children === undefined || balloon.children[0].children === undefined || balloon == undefined ){
       this.youLose()
     } else {
       var points = parseInt(balloon.children[0].children[1].innerText)
