@@ -64,6 +64,7 @@ canvas {
   border: solid 1px black;
   overflow: hidden;
   position: relative;
+  max-width: 1500px;
 }
 
 .innerBalContainer{
@@ -288,6 +289,7 @@ canvas {
   background-color: green;
   cursor: pointer;
   margin-top: 10px;
+  margin-right: -10px;
 }
 
 .startBtn.green{
@@ -317,17 +319,17 @@ canvas {
 }
 
 .headContainer{
-  width: 200px;
+      width: 100%;
   position: absolute;
-  right: 10px;
+  flex-grow: 1;
 }
 
 .timer{
   background-color: Transparent;
   width: 200px;
   position: absolute;
-  left: 0px;
-  top: 0px;
+  left: -55px;
+    top: -50px;
   height: 180px;
   display: flex;
   align-items: center;

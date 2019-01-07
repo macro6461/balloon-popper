@@ -287,12 +287,11 @@ class App extends Component {
         <h1>Balloon Learning</h1>
         <canvas id="output" ></canvas>
 
-
-        <Timer time={time} passedClassName={this.state.timerClass}/>
-        <div style={{height: 100 + 'px'}}>
+        <div style={{height: 100 + 'px', width: 80 + '%', maxWidth: 1500 + 'px', display: 'block', margin: 'auto', position: 'relative' }}>
+          <Timer time={time} passedClassName={this.state.timerClass}/>
           <div className="headContainer">
             <div className={startClass} onClick={startBtnAction}>{startBtntext}</div>
-            <div className="balTotal" onChange={this.handleOnChange()}>{this.state.total}</div>
+            <div className="balTotal" onChange={this.handleOnChange()}>SCORE: {this.state.total}</div>
           </div>
         </div>
         <div className="parentBalContainer">
