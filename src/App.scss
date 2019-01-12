@@ -19,6 +19,10 @@ canvas {
   position:absolute;
 }
 
+.drop-link{
+  text-decoration: none;
+}
+
 @keyframes square {
   @for $i from 1 through 41 {
     #{($i * 2%)} {
@@ -41,6 +45,13 @@ canvas {
 }
 
 .App {
+  text-align: center;
+  display: block;
+  margin:auto;
+}
+
+
+.Maths {
   text-align: center;
   display: block;
   margin:auto;
@@ -240,6 +251,16 @@ canvas {
   50%{ -webkit-transform:translateY(-20px) rotate(8deg);}
 }
 
+@keyframes balloon-bounce-blue{
+  0%,100%{ -webkit-transform:translateY(-16deg) rotate(0deg);}
+  50%{ -webkit-transform:translateY(-20px) rotate(-15deg);}
+}
+
+@keyframes balloon-bounce-green{
+  0%,100%{ -webkit-transform:translateY(-6deg) rotate(0deg);}
+  50%{ -webkit-transform:translateY(-20px) rotate(8deg);}
+}
+
 @keyframes balloon-rise{
   0%{
     -webkit-transform:translateY(2000px);
@@ -249,10 +270,13 @@ canvas {
 }
 
 .balTotal{
+  display: block;
+  margin: auto;
   min-width: 50px;
   font-size: 30px;
   padding: 20px;
   padding-top: 10px;
+  text-align: center;
 }
 
 .balSpanOp {
@@ -480,6 +504,101 @@ button.pulsate::after {
    margin-top: 100px;
 }
 
+.landingContainer{
+  position: fixed;
+  top: 100px;
+  bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.landingBal{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width:150px;
+  height:150px;
+  text-align: center;
+  border-radius:0;
+  border-radius:80% 80% 80% 80%;
+  margin: 10px;
+  padding:10px;
+  -webkit-transform-origin: bottom center;
+  animation: balloon-bounce 6s ease-in-out infinite;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+   border: solid 1px black;
+   bottom: -50px;
+}
+
+.landingBal-h1-container{
+  width: 100px;
+  display: block;
+  marign: auto;
+  // align-items: center;
+  // justify-content: center;
+
+}
+
+.landingBal h1{
+text-align: center;
+display: block;
+margin: auto;
+font-size: 50px;
+
+}
+
+.svg-inline--fa{
+  -webkit-text-stroke-width: 2px;
+   -webkit-text-stroke-color: black;
+}
+
+.landingBal.red{
+  background-color: red;
+  box-shadow:inset 17px 7px 10px red;
+}
+
+.landingBal.red:before {
+  color:red;
+  position:absolute;
+  bottom:-14px;
+  content:"▲";
+  font-size:1em;
+}
+
+.landingBal.blue{
+  background-color: blue;
+  box-shadow:inset 17px 7px 10px blue;
+  -webkit-transform-origin: bottom center;
+  animation: balloon-bounce-blue 6s ease-in-out infinite;
+}
+
+.landingBal.blue:before {
+  color:blue;
+  position:absolute;
+  bottom:-14px;
+  content:"▲";
+  font-size:1em;
+}
+
+.landingBal.green{
+  background-color: green;
+  box-shadow:inset 17px 7px 10px green;
+  -webkit-transform-origin: bottom center;
+  animation: balloon-bounce-green 6s ease-in-out infinite;
+}
+
+.landingBal.green:before {
+  color:green;
+  position:absolute;
+  bottom:-14px;
+  content:"▲";
+  font-size:1em;
+}
+
 // ******************************** MEDIA QUERIES *********************************
 
 /* ----------- iPhone 4 and 4S ----------- */
@@ -500,11 +619,17 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
-      bottom: 20%;
-      left: 5%;
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
-    lostBalContainer{
+
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
     }
@@ -549,7 +674,7 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
     }
@@ -603,6 +728,15 @@ button.pulsate::after {
     .balContainer{
       height: 400px;
     }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
+    }
     .lostBal{
       width: 300px;
       height: 300px;
@@ -610,7 +744,7 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
     }
@@ -661,7 +795,7 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
     }
@@ -725,7 +859,7 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
     }
@@ -778,9 +912,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -841,9 +984,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -894,9 +1046,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -957,9 +1118,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1010,9 +1180,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1070,9 +1249,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1120,9 +1308,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1170,9 +1367,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1221,9 +1427,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1271,9 +1486,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1333,9 +1557,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1382,9 +1615,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1442,9 +1684,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1491,9 +1742,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1550,9 +1810,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1599,9 +1868,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1657,9 +1935,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1706,9 +1993,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1764,9 +2060,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
@@ -1812,9 +2117,18 @@ button.pulsate::after {
       bottom: 20%;
       left: 5%;
     }
-    lostBalContainer{
+    .lostBalContainer{
       bottom: 20%;
       left: 5%;
+    }
+    .landingContainer {
+      position: relative;
+      top: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: auto;
     }
     .finalPlayAgain{
       background-color: green;
