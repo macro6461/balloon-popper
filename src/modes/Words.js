@@ -3,7 +3,8 @@ import { Router, Route, Switch } from 'react-router'
 import { Link } from 'react-router-dom'
 import '../App.scss';
 // import style from './App.less'
-import RedBalloon from '../balloons/RedBalloon'
+import WordBalloon from '../balloons/WordBalloon'
+import Letter from '../balloons/Letter'
 import Timer from '../Timer'
 import YouLose from '../balloons/YouLose'
 
@@ -21,7 +22,12 @@ class Words extends Component {
     myVar: '',
     timerClass: 'timer',
     lost: false,
-    passedTotal: 0
+    passedTotal: 0,
+    underConstruction: false,
+    words: ['YES', 'NO', 'MAYBE'],
+    wordInput: '',
+    word: ['N', 'O'],
+    letters: [{letter: 'N', className: 'letter'}, {letter: 'O', className: 'letter'}]
   }
 
   startTime = () =>{
@@ -31,18 +37,27 @@ class Words extends Component {
   }
 
   componentDidMount = () =>{
-    // var boomBoom = this.boomBoom
-    // $(document).ready(function(){
-    //    $('body').click(function(e){
-    //       boomBoom(e.pageX , e.pageY, e);
-    //    });
-    // })
-    //
-    // window.requestAnimationFrame=function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.msRequestAnimationFrame||window.oRequestAnimationFrame||function(f){window.setTimeout(f,1e3/60)}}();
+    this.setState({
+      word: this.generateWord().split(""),
+    }, ()=>{
+      this.setState({
+        letters: this.setLetters(this.state.word)
+      })
+    })
   }
 
-  randomInt = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+  setLetters = (data) => {
+    var newLetters = data.map((letter)=>{
+      var obj = {}
+      obj['letter'] = letter
+      obj['className'] = 'letter'
+      return obj
+    })
+    return newLetters
+  }
+
+  generateWord = () =>{
+    return this.state.words[Math.floor(Math.random() * this.state.words.length)]
   }
 
   runTimer = () =>{
@@ -52,6 +67,7 @@ class Words extends Component {
   }
 
   popBalloon = (e) =>{
+
     var balloon
 
     if (e.target.className === "balSpanOp" || e.target.className === "balSpanNum" ){
@@ -67,11 +83,46 @@ class Words extends Component {
     if (balloon == undefined || balloon.children === undefined || balloon.children[0] === undefined || balloon.children[0].children === undefined || balloon.classList.value.includes('black')){
       this.youLose()
     } else {
-      var points = parseInt(balloon.children[0].children[1].innerText)
-      var op = balloon.children[0].children[0].innerText
-      this.calcPoints(points, op)
+      this.searchLetters(balloon.children[0].children[1].innerText)
+      this.calcPoints()
     }
+  }
 
+  searchLetters = (data) =>{
+    var num
+    var newLetter = this.state.letters.find((letter, index)=>{
+      if (letter.letter === data){
+        num = index
+        letter['className'] = 'letter found'
+        return letter
+      }
+    })
+
+    this.setState({
+      letters: this.state.letters
+    })
+    // if (this.state.letters.includes(data)){
+    //
+    // }
+    // var balloon
+    // var doesMatch
+    // if (e.target.className === "balSpanOp" || e.target.className === "balSpanNum" ){
+    //   balloon = e.target.parentElement.parentElement
+    // } else if (e.target.className === "spanDiv") {
+    //   balloon = e.target.parentElement
+    // } else if (e.target.tagName === 'svg'){
+    //   balloon = e.target.parentElement.parentElement.parentElement
+    // } else {
+    //   balloon = e.target
+    // }
+
+    // if (this.state.word.includes(balloon.children[0].children[1].innerText)){
+    //   doesMatch = true
+    // } else {
+    //   doesMatch = false
+    // }
+
+    // return doesMatch
   }
 
   onStart=()=>{
@@ -85,7 +136,6 @@ class Words extends Component {
       this.setState({
         timerClass: 'timer'
       })
-      // this.startBubbleMachine()
     }, 2000)})
   }
 
@@ -97,22 +147,10 @@ class Words extends Component {
     this.restart()
   }
 
-  calcPoints = (x, y) =>{
-    if (y === "-" ){
+  calcPoints = () =>{
       this.setState({
-        total: this.state.total - x
+        total: this.state.total + 5
       })
-    } else {
-      this.setState({
-        total: this.state.total + x
-      })
-    }
-  }
-
-  handleOnChange = () =>{
-    if (this.state.total > 0){
-
-    }
   }
 
   restart = () =>{
@@ -140,10 +178,6 @@ class Words extends Component {
 
   }
 
-  generatePlusOrMinus = () =>{
-    return Math.floor(Math.random()* 2 +1)
-  }
-
   calcTime = (data) =>{
     var sec_num = parseInt(data, 10); // don't forget the second param
     var hours   = Math.floor(sec_num / 3600);
@@ -161,6 +195,7 @@ class Words extends Component {
     var startBtnAction;
     var startBtntext;
     var startClass;
+    var letterClass = 'letter'
     if (this.state.start){
       startBtnAction = this.restart
       startBtntext = 'Stop'
@@ -172,39 +207,53 @@ class Words extends Component {
     }
 
     return (
-      <div className="Words">
-        <h1>WORDS</h1>
+      <div className="Infant">
+
+        {this.state.underConstruction
+          ? <div><h1>WORDS</h1><p>(under construction)</p></div>
+          : null
+        }
         {this.state.lost
           ? <YouLose finalTime={this.state.finalTime} finalScore={this.state.passedTotal} onClick={this.onStart}/>
           : null
         }
 
-        <div style={{height: 100 + 'px', width: 80 + '%', maxWidth: 1500 + 'px', display: 'block', margin: 'auto', position: 'relative' }}>
+        {!this.state.underConstruction
+          ? <div>
+          <div style={{height: 100 + 'px', width: 80 + '%', maxWidth: 1500 + 'px', display: 'block', margin: 'auto', position: 'relative' }}>
           <Timer time={time} passedClassName={this.state.timerClass}/>
           <div className="headContainer">
             <div className={startClass} onClick={startBtnAction}>{startBtntext}</div>
-            <div className="balTotal" onChange={this.handleOnChange()}>SCORE: {this.state.total}</div>
+            <div className="balTotal">SCORE: {this.state.total}</div>
           </div>
         </div>
+
         <div className="parentBalContainer">
 
            <div className="balContainer">
+             <div className="wordDiv"><h3>{
+                this.state.letters.map((letter, index)=>{
+                   return <Letter className={letter.className} key={index} word={this.state.word} letter={letter.letter}/>
+                })
+               }</h3></div>
              {this.state.start
                ? <div>
-                   <RedBalloon id='balloon1' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
-                   <RedBalloon id='balloon2' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
-                   <RedBalloon id='balloon3' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
-                   <RedBalloon id='balloon4' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
-                   <RedBalloon id='balloon5' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
-                   <RedBalloon id='balloon6' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
-                   <RedBalloon id='balloon7' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
-
+                   <WordBalloon id='balloon1' popBalloon={this.popBalloon} word={this.state.word}/>
+                   <WordBalloon id='balloon2' popBalloon={this.popBalloon} word={this.state.word}/>
+                   <WordBalloon id='balloon3' popBalloon={this.popBalloon} word={this.state.word}/>
+                   <WordBalloon id='balloon4' popBalloon={this.popBalloon} word={this.state.word}/>
+                   <WordBalloon id='balloon5' popBalloon={this.popBalloon} word={this.state.word}/>
+                   <WordBalloon id='balloon6' popBalloon={this.popBalloon} word={this.state.word}/>
+                   <WordBalloon id='balloon7' popBalloon={this.popBalloon} word={this.state.word}/>
                 </div>
             : null
           }
           </div>
 
         </div>
+        </div>
+        : null
+      }
 
       </div>
     );
@@ -213,8 +262,8 @@ class Words extends Component {
 
 export default Words;
 //
-// <RedBalloon id='balloon2' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
-// <RedBalloon id='balloon3' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+// <WordBalloon id='balloon2' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
+// <WordBalloon id='balloon3' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
 // <RedBalloon id='balloon4' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
 // <RedBalloon id='balloon5' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>
 // <RedBalloon id='balloon6' popBalloon={this.popBalloon} generatePlusOrMinus={this.generatePlusOrMinus}/>

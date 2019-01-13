@@ -19,8 +19,66 @@ canvas {
   position:absolute;
 }
 
+.nav{
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
 .drop-link{
   text-decoration: none;
+}
+
+.nav-link, .nav-link-lower{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  list-style: none;
+}
+
+.nav-link-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -25px;
+}
+
+.nav-link{
+
+}
+
+.nav-link h1{
+  font-size: 30px;
+    padding-bottom: 10px;
+}
+
+.nav-link-lower{
+  font-size: 20px;
+  margin-left: 25px;
+}
+
+.wordDiv{
+  display: block;
+  margin: auto;
+  width: 200px;
+  border: solid 1px black;
+  border-top: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.letter{
+  color: white;
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+   display: inline-block;
+   font-size: 30px;
+}
+
+.letter.found{
+  color: gold;
 }
 
 @keyframes square {

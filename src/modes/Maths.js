@@ -173,7 +173,6 @@ class Maths extends Component {
 
     return (
       <div className="Maths">
-        <h1>MATHS</h1>
         {this.state.lost
           ? <YouLose finalTime={this.state.finalTime} finalScore={this.state.passedTotal} onClick={this.onStart}/>
           : null

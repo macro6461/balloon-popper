@@ -21,7 +21,8 @@ class Infant extends Component {
     myVar: '',
     timerClass: 'timer',
     lost: false,
-    passedTotal: 0
+    passedTotal: 0,
+    underConstruction: true
   }
 
   startTime = () =>{
@@ -173,19 +174,26 @@ class Infant extends Component {
 
     return (
       <div className="Infant">
-        <h1>INFANT</h1>
+
+        {this.state.underConstruction
+          ? <div><h1>INFANT LEARNING</h1><p>(under construction)</p></div>
+          : null
+        }
         {this.state.lost
           ? <YouLose finalTime={this.state.finalTime} finalScore={this.state.passedTotal} onClick={this.onStart}/>
           : null
         }
 
-        <div style={{height: 100 + 'px', width: 80 + '%', maxWidth: 1500 + 'px', display: 'block', margin: 'auto', position: 'relative' }}>
+        {!this.state.underConstruction
+          ? <div>
+          <div style={{height: 100 + 'px', width: 80 + '%', maxWidth: 1500 + 'px', display: 'block', margin: 'auto', position: 'relative' }}>
           <Timer time={time} passedClassName={this.state.timerClass}/>
           <div className="headContainer">
             <div className={startClass} onClick={startBtnAction}>{startBtntext}</div>
             <div className="balTotal" onChange={this.handleOnChange()}>SCORE: {this.state.total}</div>
           </div>
         </div>
+
         <div className="parentBalContainer">
 
            <div className="balContainer">
@@ -205,6 +213,9 @@ class Infant extends Component {
           </div>
 
         </div>
+        </div>
+        : null
+      }
 
       </div>
     );

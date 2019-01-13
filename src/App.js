@@ -32,7 +32,6 @@ class App extends Component {
   }
 
   handleLinkClick = () =>{
-    debugger
     setTimeout(()=>{
       if (window.location.href.indexOf("Infant") > -1 || window.location.href.indexOf("Maths") > -1 || window.location.href.indexOf("Words") > -1){
         this.setState({
@@ -303,17 +302,17 @@ class App extends Component {
 
     return (
       <div className="App">
-
-        <br></br>
-        <Link className="drop-link" to="/"><h1 style={{color: 'black'}} onClick={this.handleLinkClick}>Balloon Learning</h1></Link>
-        {this.state.linkClicked
-          ? <div>
-              <Link className="drop-link" to="/Maths"><li>Maths</li></Link>
-              <Link className="drop-link" to="/Words"><li>Words</li></Link>
-              <Link className="drop-link" to="/Infant"><li>Infant</li></Link>
-            </div>
-          : null
-        }
+        <div className="nav">
+          <Link className="nav-link" to="/"><h1 style={{color: 'black'}} onClick={this.handleLinkClick}>Balloon Learning</h1></Link>
+          {this.state.linkClicked
+            ? <div className="nav-link-container">
+                <Link className="nav-link-lower" to="/Maths"><li>Maths</li></Link>
+                <Link className="nav-link-lower" to="/Words"><li>Words</li></Link>
+                <Link className="nav-link-lower" to="/Infant"><li>Infant</li></Link>
+              </div>
+            : null
+          }
+        </div>
 
           <canvas id="output" ></canvas>
 
