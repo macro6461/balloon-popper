@@ -9,6 +9,8 @@ library.add(faSkull)
 
 var myInterval = ''
 
+// ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+
 class WordBalloon extends Component {
 
   state = {
@@ -19,7 +21,7 @@ class WordBalloon extends Component {
     topStyle: 0,
     timer: 0,
     animationDur: 0,
-    letterOpts: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+    letterOpts: ['A', 'B', 'E', 'M', 'N', 'O', 'S', 'T', 'Y'],
     colorOpts: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
     colorChoice: '',
     letterChoice: '',

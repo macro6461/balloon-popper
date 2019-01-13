@@ -38,7 +38,7 @@ class Words extends Component {
 
   componentDidMount = () =>{
     this.setState({
-      word: this.generateWord().split(""),
+      word: this.generateWord(),
     }, ()=>{
       this.setState({
         letters: this.setLetters(this.state.word)
@@ -57,7 +57,17 @@ class Words extends Component {
   }
 
   generateWord = () =>{
-    return this.state.words[Math.floor(Math.random() * this.state.words.length)]
+    return this.state.words[Math.floor(Math.random() * this.state.words.length)].split('')
+  }
+
+  newWord = () =>{
+    this.setState({
+      word: this.generateWord(),
+    }, ()=>{
+      this.setState({
+        letters: this.setLetters(this.state.word)
+      })
+    })
   }
 
   runTimer = () =>{
@@ -84,7 +94,6 @@ class Words extends Component {
       this.youLose()
     } else {
       this.searchLetters(balloon.children[0].children[1].innerText)
-      this.calcPoints()
     }
   }
 
@@ -92,37 +101,28 @@ class Words extends Component {
     var num
     var newLetter = this.state.letters.find((letter, index)=>{
       if (letter.letter === data){
+        this.calcPoints()
         num = index
         letter['className'] = 'letter found'
         return letter
       }
     })
-
     this.setState({
       letters: this.state.letters
     })
-    // if (this.state.letters.includes(data)){
-    //
-    // }
-    // var balloon
-    // var doesMatch
-    // if (e.target.className === "balSpanOp" || e.target.className === "balSpanNum" ){
-    //   balloon = e.target.parentElement.parentElement
-    // } else if (e.target.className === "spanDiv") {
-    //   balloon = e.target.parentElement
-    // } else if (e.target.tagName === 'svg'){
-    //   balloon = e.target.parentElement.parentElement.parentElement
-    // } else {
-    //   balloon = e.target
-    // }
+    this.checkAllLetters()
+  }
 
-    // if (this.state.word.includes(balloon.children[0].children[1].innerText)){
-    //   doesMatch = true
-    // } else {
-    //   doesMatch = false
-    // }
-
-    // return doesMatch
+  checkAllLetters = () =>{
+    debugger
+    var classNames = this.state.letters.map((letter)=>{
+      return letter.className
+    })
+    var uniqueClasses = [...new Set(classNames)]
+    if (uniqueClasses.length === 1){
+      alert("you won! But I haven't built that feature so it's going to say you lost but you definitely didn't lose you're great I just...")
+      this.youLose()
+    }
   }
 
   onStart=()=>{
@@ -148,6 +148,7 @@ class Words extends Component {
   }
 
   calcPoints = () =>{
+    debugger
       this.setState({
         total: this.state.total + 5
       })
@@ -160,9 +161,11 @@ class Words extends Component {
       start: false,
       total: 0,
       time: 0,
+      wordInput: []
     }, ()=>{
       clearInterval(clearTimer)
     })
+    this.newWord()
   }
 
   resetStart = () =>{
