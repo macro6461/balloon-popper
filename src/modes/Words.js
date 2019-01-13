@@ -118,10 +118,12 @@ class Words extends Component {
     var classNames = this.state.letters.map((letter)=>{
       return letter.className
     })
-    var uniqueClasses = [...new Set(classNames)]
-    if (uniqueClasses.length === 1){
-      alert("you won! But I haven't built that feature so it's going to say you lost but you definitely didn't lose you're great I just...")
-      this.youLose()
+    if (classNames.includes("found")){
+      var uniqueClasses = [...new Set(classNames)]
+      if (uniqueClasses.length === 1){
+        alert("you won! But I haven't built that feature so it's going to say you lost but you definitely didn't lose you're great I just...")
+        this.youLose()
+      }
     }
   }
 
