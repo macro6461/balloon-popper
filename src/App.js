@@ -20,14 +20,7 @@ var interval = ''
 class App extends Component {
 
   state = {
-  //   total: 0,
-  //   start: false,
-  //   time: 0,
-  //   finalTime: 0,
-  //   myVar: '',
-  //   timerClass: 'timer',
-  //   lost: false,
-  //   passedTotal: 0
+
     linkClicked: false
   }
 
@@ -46,15 +39,8 @@ class App extends Component {
 
   }
 
-
-  //
-  // startTime = () =>{
-  //   this.setState({
-  //     time: this.runTimer()
-  //   })
-  // }
-  //
   boomBoom = (actualX,actualY, e) => {
+    debugger
     var targ
 
     if (e.target.classList.value == 'spanDiv'){
@@ -72,7 +58,7 @@ class App extends Component {
          // Shim with setTimeout fallback
 
       	var laX = actualX;
-      	var laY = actualY;
+      	var laY = actualY - 100;
       	var W = canvas.width = window.innerWidth;
       	var H = canvas.height = window.innerHeight;
       	// Let's set our gravity
@@ -94,7 +80,7 @@ class App extends Component {
       	function Particle() {
       		this.radius = parseInt(Math.random() * 10);
       		this.x = actualX;
-      		this.y = actualY;
+      		this.y = actualY - 100;
 
       		this.color = random_color;
 
@@ -169,136 +155,10 @@ class App extends Component {
     window.requestAnimationFrame=function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.msRequestAnimationFrame||window.oRequestAnimationFrame||function(f){window.setTimeout(f,1e3/60)}}();
     this.handleLinkClick()
   }
-  //
-  // randomInt = (min, max) => {
-  //   return Math.floor(Math.random() * (max - min + 1) + min);
-  // }
-  //
-  // runTimer = () =>{
-  //     this.setState({
-  //       time: this.state.time += 1
-  //     })
-  // }
-  //
-  // popBalloon = (e) =>{
-  //   var balloon
-  //
-  //   if (e.target.className === "balSpanOp" || e.target.className === "balSpanNum" ){
-  //     balloon = e.target.parentElement.parentElement
-  //   } else if (e.target.className === "spanDiv") {
-  //     balloon = e.target.parentElement
-  //   } else if (e.target.tagName === 'svg'){
-  //     balloon = e.target.parentElement.parentElement.parentElement
-  //   } else {
-  //     balloon = e.target
-  //   }
-  //
-  //   if (balloon == undefined || balloon.children === undefined || balloon.children[0] === undefined || balloon.children[0].children === undefined || balloon.classList.value.includes('black')){
-  //     this.youLose()
-  //   } else {
-  //     var points = parseInt(balloon.children[0].children[1].innerText)
-  //     var op = balloon.children[0].children[0].innerText
-  //     this.calcPoints(points, op)
-  //   }
-  //
-  // }
-  //
-  // onStart=()=>{
-  //   this.setState({
-  //     start: true,
-  //     total: 0,
-  //     myVar: setInterval(this.runTimer, 1000),
-  //     lost: false,
-  //     timerClass: 'timer pulsate'
-  //   },()=>{setTimeout(()=>{
-  //     this.setState({
-  //       timerClass: 'timer'
-  //     })
-  //     // this.startBubbleMachine()
-  //   }, 2000)})
-  // }
-  //
-  // youLose = () =>{
-  //   this.setState({
-  //     lost: true,
-  //     passedTotal: this.state.total
-  //   })
-  //   this.restart()
-  // }
-  //
-  // calcPoints = (x, y) =>{
-  //   if (y === "-" ){
-  //     this.setState({
-  //       total: this.state.total - x
-  //     })
-  //   } else {
-  //     this.setState({
-  //       total: this.state.total + x
-  //     })
-  //   }
-  // }
-  //
-  // handleOnChange = () =>{
-  //   if (this.state.total > 0){
-  //
-  //   }
-  // }
-  //
-  // restart = () =>{
-  //   var clearTimer = this.state.myVar
-  //   this.setState({
-  //     finalTime: this.calcTime(this.state.time),
-  //     start: false,
-  //     total: 0,
-  //     time: 0,
-  //   }, ()=>{
-  //     clearInterval(clearTimer)
-  //   })
-  // }
-  //
-  // resetStart = () =>{
-  //   this.setState({
-  //     start: true,
-  //     lost: false,
-  //     passedTotal: 0
-  //   },()=>{setTimeout(()=>{
-  //     this.setState({
-  //       timerClass: 'timer'
-  //     })
-  //   }, 5000)})
-  //
-  // }
-  //
-  // generatePlusOrMinus = () =>{
-  //   return Math.floor(Math.random()* 2 +1)
-  // }
-  //
-  // calcTime = (data) =>{
-  //   var sec_num = parseInt(data, 10); // don't forget the second param
-  //   var hours   = Math.floor(sec_num / 3600);
-  //   var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-  //   var seconds = sec_num - (hours * 3600) - (minutes * 60);
-  //
-  //   if (hours   < 10) {hours   = "0"+hours;}
-  //   if (minutes < 10) {minutes = "0"+minutes;}
-  //   if (seconds < 10) {seconds = "0"+seconds;}
-  //   return hours+':'+minutes+':'+seconds;
-  // }
 
   render() {
-    // var time = this.calcTime(this.state.time)
-    // var startBtnAction;
-    // var startBtntext;
-    // var startClass;
-    // if (this.state.start){
-    //   startBtnAction = this.restart
-    //   startBtntext = 'Stop'
-    //   startClass = 'startBtn red'
-    // } else {
-    //   startBtnAction = this.onStart
-    //   startBtntext = 'Start'
-    //   startClass = 'startBtn green'
-    // }
+
+    const maths = "Math"
 
     return (
       <div className="App">
@@ -306,7 +166,7 @@ class App extends Component {
           <Link className="nav-link" to="/"><h1 style={{color: 'black'}} onClick={this.handleLinkClick}>Balloon Learning</h1></Link>
           {this.state.linkClicked
             ? <div className="nav-link-container">
-                <Link className="nav-link-lower" to="/Maths"><li>Maths</li></Link>
+                <Link className="nav-link-lower" to="/Maths"><li>{maths}</li></Link>
                 <Link className="nav-link-lower" to="/Words"><li>Words</li></Link>
                 <Link className="nav-link-lower" to="/Infant"><li>Infant</li></Link>
               </div>

@@ -20,11 +20,37 @@ canvas {
 }
 
 .nav{
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
   padding-top: 20px;
   padding-bottom: 10px;
+}
+
+.spinNum{
+  display: inline-block;
+  transform: rotateX(0deg);
+}
+
+.spinNumTurnUp {
+  display: inline-block;
+  animation: turn-num-up 0.5s;
+}
+
+.spinNumTurnDown {
+  display: inline-block;
+  animation: turn-num-down 0.5s;
+}
+
+@keyframes turn-num-up {
+  0%{transform: rotateX(360deg);color: green;} 100%{transform: rotateX(0deg);color: black;}
+}
+
+@keyframes turn-num-down {
+  0%{
+    transform: rotateX(0deg);
+    color: red;
+  } 100%{
+    transform: rotateX(360deg);
+    color: black;
+  }
 }
 
 .drop-link{
@@ -175,12 +201,12 @@ canvas {
 /* -------------------- RED BALLOON STYLES -------------------- */
 
 .redBalloon{
-  background-color: red;
-  box-shadow:inset 17px 7px 10px red;
+  background-color: #ff6961;
+  box-shadow:inset 17px 7px 10px #ff6961;
 }
 
 .redBalloon:before {
-  color:red;
+  color:#ff6961;
   position:absolute;
   bottom:-14px;
   left: 20px;
@@ -191,12 +217,12 @@ canvas {
 /* -------------------- ORANGE BALLOON STYLES -------------------- */
 
 .orangeBalloon{
-  background-color: orange;
-  box-shadow:inset 17px 7px 10px orange;
+  background-color: #ffb347;
+  box-shadow:inset 17px 7px 10px #ffb347;
 }
 
 .orangeBalloon:before {
-  color:orange;
+  color:#ffb347;
   position:absolute;
   bottom:-14px;
   left: 20px;
@@ -207,12 +233,12 @@ canvas {
 /* -------------------- YELLOW BALLOON STYLES -------------------- */
 
 .yellowBalloon{
-  background-color: yellow;
-  box-shadow:inset 17px 7px 10px yellow;
+  background-color: #fdfd96;
+  box-shadow:inset 17px 7px 10px #fdfd96;
 }
 
 .yellowBalloon:before {
-  color:yellow;
+  color:#fdfd96;
   position:absolute;
   bottom:-14px;
   left: 20px;
@@ -224,12 +250,12 @@ canvas {
 /* -------------------- GREEN BALLOON STYLES -------------------- */
 
 .greenBalloon{
-  background-color: green;
-  box-shadow:inset 17px 7px 10px green;
+  background-color: #77dd77;
+  box-shadow:inset 17px 7px 10px #77dd77;
 }
 
 .greenBalloon:before {
-  color:green;
+  color:#77dd77;
   position:absolute;
   bottom:-14px;
   left: 20px;
@@ -241,12 +267,12 @@ canvas {
 /* -------------------- BLUE BALLOON STYLES -------------------- */
 
 .blueBalloon{
-  background-color: blue;
-  box-shadow:inset 17px 7px 10px blue;
+  background-color: #6384e6;
+  box-shadow:inset 17px 7px 10px #6384e6;
 }
 
 .blueBalloon:before {
-  color:blue;
+  color:#6384e6;
   position:absolute;
   bottom:-14px;
   left: 20px;
@@ -258,12 +284,12 @@ canvas {
 /* -------------------- INDIGO BALLOON STYLES -------------------- */
 
 .indigoBalloon{
-  background-color: indigo;
-  box-shadow:inset 17px 7px 10px indigo;
+  background-color: #c620ff;
+  box-shadow:inset 17px 7px 10px #c620ff;
 }
 
 .indigoBalloon:before {
-  color:indigo;
+  color:#c620ff;
   position:absolute;
   bottom:-14px;
   left: 20px;
@@ -274,12 +300,12 @@ canvas {
 /* -------------------- VIOLET BALLOON STYLES -------------------- */
 
 .violetBalloon{
-  background-color: violet;
-  box-shadow:inset 17px 7px 10px violet;
+  background-color: #cb99c9;
+  box-shadow:inset 17px 7px 10px #cb99c9;
 }
 
 .violetBalloon:before {
-  color:violet;
+  color:#cb99c9;
   position:absolute;
   bottom:-14px;
   left: 20px;
@@ -616,12 +642,12 @@ font-size: 50px;
 }
 
 .landingBal.red{
-  background-color: red;
-  box-shadow:inset 17px 7px 10px red;
+  background-color: #ff6961;
+  box-shadow:inset 17px 7px 10px #ff6961;
 }
 
 .landingBal.red:before {
-  color:red;
+  color:#ff6961;
   position:absolute;
   bottom:-14px;
   content:"▲";
@@ -629,14 +655,14 @@ font-size: 50px;
 }
 
 .landingBal.blue{
-  background-color: blue;
-  box-shadow:inset 17px 7px 10px blue;
+  background-color: #6384e6;
+  box-shadow:inset 17px 7px 10px #6384e6;
   -webkit-transform-origin: bottom center;
   animation: balloon-bounce-blue 6s ease-in-out infinite;
 }
 
 .landingBal.blue:before {
-  color:blue;
+  color:#6384e6;
   position:absolute;
   bottom:-14px;
   content:"▲";
@@ -644,14 +670,14 @@ font-size: 50px;
 }
 
 .landingBal.green{
-  background-color: green;
-  box-shadow:inset 17px 7px 10px green;
+  background-color: #77dd77;
+  box-shadow:inset 17px 7px 10px #77dd77;
   -webkit-transform-origin: bottom center;
   animation: balloon-bounce-green 6s ease-in-out infinite;
 }
 
 .landingBal.green:before {
-  color:green;
+  color:#77dd77;
   position:absolute;
   bottom:-14px;
   content:"▲";

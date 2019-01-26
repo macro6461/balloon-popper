@@ -11,6 +11,7 @@ import { faBaby } from '@fortawesome/free-solid-svg-icons'
 import Maths from './modes/Maths'
 import Words from './modes/Words'
 import Infant from './modes/Infant'
+import TurnNumContainer from './TurnNumContainer'
 
 
 import $ from 'jquery'
@@ -27,7 +28,6 @@ class Landing extends Component {
 
     return(
       <div className='landingContainer'>
-
 
           <Link className="drop-link" to="/Maths" onClick={this.props.handleClick}>
           <div className="landingBal red">
