@@ -16,11 +16,19 @@ import $ from 'jquery'
 var interval = ''
 class Instruction extends Component {
 
+  removeInstruction = () =>{
+    this.props.removeInstruction()
+    debugger
+  }
+
   render() {
 
     return(
-      <div className='instructionContainer'>
-        <img className="balloonBuddy" src={smileBal}/>
+      <div className='instructionOuterContainer'>
+        <div className='instructionModalBackground'></div>
+        <div className='instructionContainer'>
+          <img className="balloonBuddy" src={smileBal} onClick={this.removeInstruction}/>
+        </div>
       </div>
     )
   }

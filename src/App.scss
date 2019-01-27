@@ -6,6 +6,27 @@
 	margin: 0; padding: 0;
 }
 
+.instructionModalBackground{
+  z-index: 1000;
+  position: fixed;
+  bottom: 0%;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  background: rgb(0, 0, 0);
+  opacity: 0.8;
+  filter: Alpha(Opacity=50);
+  animation: fade-in-modal-back 0.6s;
+}
+
+@keyframes fade-in-modal-back {
+  0% {
+    opacity: 0;
+  } 100%{
+    opacity: 0.8;
+  }
+}
+
 .instructionContainer{
   animation: slide-intro 0.5s;
   position: fixed;
@@ -23,6 +44,7 @@
 }
 
 .balloonBuddy{
+  cursor: pointer;
   width: 200px;
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
@@ -112,7 +134,7 @@ canvas {
 }
 
 .nav-link, .nav-link-lower{
-  z-index: 1001;
+  z-index: 999;
   text-decoration: none;
   color: black;
   list-style: none;

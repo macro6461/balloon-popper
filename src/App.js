@@ -21,7 +21,8 @@ var interval = ''
 class App extends Component {
 
   state = {
-    linkClicked: false
+    linkClicked: false,
+    showInstructions: true,
   }
 
   handleLinkClick = () =>{
@@ -36,6 +37,13 @@ class App extends Component {
         })
       }
     }, 0)
+  }
+
+  removeInstruction = () =>{
+    debugger
+    this.setState({
+      showInstructions: false
+    })
   }
 
   boomBoom = (actualX,actualY, e) => {
@@ -166,7 +174,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Instruction/>
+        {this.state.showInstructions
+          ?<Instruction removeInstruction={this.removeInstruction}/>
+          : null
+        }
+
         <div className="nav">
           <div className="first-nav-div">
           <Link className="nav-link" to="/" onClick={this.handleLinkClick}><img className="balloonLightLogo" src={img}/></Link>
