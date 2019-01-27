@@ -20,9 +20,7 @@ class Instruction extends Component {
 
     return(
       <div className='instructionContainer'>
-
-        <img className="balloonBuddy" style={{left: 10 + 'px'}} src={smileBal}/>
-        
+        <img className="balloonBuddy" src={smileBal}/>
       </div>
     )
   }

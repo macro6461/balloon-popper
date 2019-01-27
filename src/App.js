@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router'
+import { Router, Route, Switch} from 'react-router'
 import { Link } from 'react-router-dom'
 import './App.scss';
 // import style from './App.less'
@@ -26,7 +26,7 @@ class App extends Component {
 
   handleLinkClick = () =>{
     setTimeout(()=>{
-      if (window.location.href.indexOf("Infant") > -1 || window.location.href.indexOf("Maths") > -1 || window.location.href.indexOf("Words") > -1){
+      if (window.location.href.indexOf("Infant") > -1 || window.location.href.indexOf("Math") > -1 || window.location.href.indexOf("Words") > -1){
         this.setState({
           linkClicked: true
         })
@@ -36,7 +36,6 @@ class App extends Component {
         })
       }
     }, 0)
-
   }
 
   boomBoom = (actualX,actualY, e) => {
@@ -156,6 +155,11 @@ class App extends Component {
     this.handleLinkClick()
   }
 
+  yourHandler = (previousRoute, nextRoute)=>{
+   //do your logic here
+   debugger
+  }
+
   render() {
 
     const maths = "Math"
@@ -165,14 +169,14 @@ class App extends Component {
         <Instruction/>
         <div className="nav">
           <div className="first-nav-div">
-          <Link className="nav-link" to="/"><img className="balloonLightLogo" src={img}/></Link>
+          <Link className="nav-link" to="/" onClick={this.handleLinkClick}><img className="balloonLightLogo" src={img}/></Link>
           <h1 className="nav-link-h1" style={{color: 'black', marginTop: 'auto'}} onClick={this.handleLinkClick}>Balloon Learning</h1>
           </div>
           {this.state.linkClicked
             ? <div className="nav-link-container">
-                <Link className="nav-link-lower" to="/Maths"><li>{maths}</li></Link>
-                <Link className="nav-link-lower" to="/Words"><li>Words</li></Link>
-                <Link className="nav-link-lower" to="/Infant"><li>Infant</li></Link>
+                <Link className="nav-link-lower" to="/Math" onClick={this.handleLinkClick}><li>{maths}</li></Link>
+                <Link className="nav-link-lower" to="/Words" onClick={this.handleLinkClick}><li>Words</li></Link>
+                <Link className="nav-link-lower" to="/Infant" onClick={this.handleLinkClick}><li>Infant</li></Link>
               </div>
             : null
           }
@@ -180,8 +184,8 @@ class App extends Component {
 
           <canvas id="output" ></canvas>
 
-        <Route exact path="/" component={() => <Landing handleClick={()=>{this.handleLinkClick()}} />} />
-        <Route exact path="/Maths" component={Maths} />
+        <Route exact path="/" component={() => <Landing handleClick={()=>{this.handleLinkClick()}} />} onChange={this.yourHandler}/>
+        <Route exact path="/Math" component={Maths} />
         <Route exact path="/Words" component={Words} />
         <Route exact path="/Infant" component={Infant} />
       </div>
@@ -190,11 +194,3 @@ class App extends Component {
 }
 
 export default App;
-
-// // {this.state.lost
-//   ? <YouLose finalTime={this.state.finalTime} finalScore={this.state.passedTotal} onClick={this.onStart}/>
-//   : null
-// }
-// <br></br>
-// <h1>Balloon Learning</h1>
-// <canvas id="output" ></canvas>

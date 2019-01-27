@@ -4,6 +4,7 @@ import { Router, Route, Switch } from 'react-router'
 import { Link } from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { createBrowserHistory } from 'history';
 // import { faPlus } from '@fortawesome/free-solid-svg-icons'
 // import { faMinus } from '@fortawesome/free-solid-svg-icons'
 // import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -22,14 +23,33 @@ import balloonImg from './Artboard-1.png'
 library.add(faBaby)
 
 var interval = ''
+
+const history = createBrowserHistory();
+
+// Get the current location.
+const location = history.location;
 class Landing extends Component {
+
+  componentDidMount = () =>{
+
+    history.listen((location, action) => {
+      debugger
+      setTimeout(()=>{
+        if (location.pathname.indexOf("Infant") > -1 || window.location.href.indexOf("Math") > -1 || window.location.href.indexOf("Words") > -1){
+          this.props.handleClick()
+        } else {
+            this.props.handleClick()
+        }
+      }, 0)
+    })
+  }
 
   render() {
 
     return(
       <div className='landingContainer'>
 
-          <Link style={{cursor: 'pointer'}} className="drop-link" to="/Maths" onClick={this.props.handleClick}>
+          <Link style={{cursor: 'pointer'}} className="drop-link" to="/Math" onClick={this.props.handleClick}>
           <div className="landingBal red">
             <div className="landingBal-h1-container">
               <h1>&#43;&nbsp;&minus;</h1>
@@ -56,10 +76,9 @@ class Landing extends Component {
 
           </Link>
 
-          <Route exact path="/Maths" component={Maths} />
+          <Route exact path="/Math" component={Maths}  />
           <Route exact path="/Words" component={Words} />
           <Route exact path="/Infant" component={Infant} />
-
 
       </div>
     )

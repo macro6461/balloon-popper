@@ -6,13 +6,48 @@
 	margin: 0; padding: 0;
 }
 
-.balloonBuddy{
-  width: 200px;
+.instructionContainer{
+  animation: slide-intro 0.5s;
   position: fixed;
   left: 10px;
   bottom: 10px;
   z-index: 1000;
 }
+
+@keyframes slide-intro {
+  0% {
+    transform: translateX(-300px);
+  } 100%{
+    transform: translateX(0px);
+  }
+}
+
+.balloonBuddy{
+  width: 200px;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    animation-delay: 0.3s;
+  }
+
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
 
 .balloonLightLogo{
   width: 100px;
@@ -720,14 +755,31 @@ font-size: 50px;
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
 
-    .balloonBuddy{
-      width: 150px;
-      position: fixed;
-      left: 10px;
-      bottom: 10px;
-      z-index: 1000;
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
     }
 
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .nav-link-h1{
       display: none !important;
     }
@@ -789,12 +841,18 @@ font-size: 50px;
 
     .balloonBuddy{
       width: 150px;
-      position: fixed;
-      left: 10px;
-      bottom: 10px;
       z-index: 1000;
     }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
 
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .nav-link-h1{
       display: none !important;
     }
@@ -866,12 +924,18 @@ font-size: 50px;
 
     .balloonBuddy{
       width: 150px;
-      position: fixed;
-      left: 10px;
-      bottom: 10px;
       z-index: 1000;
     }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
 
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .nav-link-h1{
       display: none !important;
     }
@@ -938,12 +1002,18 @@ font-size: 50px;
 
     .balloonBuddy{
       width: 150px;
-      position: fixed;
-      left: 10px;
-      bottom: 10px;
       z-index: 1000;
     }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
 
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .nav-link-h1{
       display: none !important;
     }
@@ -1014,12 +1084,18 @@ font-size: 50px;
 
     .balloonBuddy{
       width: 150px;
-      position: fixed;
-      left: 10px;
-      bottom: 10px;
       z-index: 1000;
     }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
 
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .nav-link-h1{
       display: none !important;
     }
@@ -1079,12 +1155,18 @@ font-size: 50px;
 
     .balloonBuddy{
       width: 150px;
-      position: fixed;
-      left: 10px;
-      bottom: 10px;
       z-index: 1000;
     }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
 
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .nav-link-h1{
       display: none !important;
     }
@@ -1163,12 +1245,18 @@ font-size: 50px;
 
     .balloonBuddy{
       width: 150px;
-      position: fixed;
-      left: 10px;
-      bottom: 10px;
       z-index: 1000;
     }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
 
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .nav-link-h1{
       display: none !important;
     }
@@ -1237,12 +1325,18 @@ font-size: 50px;
 
     .balloonBuddy{
       width: 150px;
-      position: fixed;
-      left: 10px;
-      bottom: 10px;
       z-index: 1000;
     }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
 
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .nav-link-h1{
       display: none !important;
     }
@@ -1321,12 +1415,18 @@ font-size: 50px;
 
     .balloonBuddy{
       width: 150px;
-      position: fixed;
-      left: 10px;
-      bottom: 10px;
       z-index: 1000;
     }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
 
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .nav-link-h1{
       display: none !important;
     }
@@ -1395,12 +1495,18 @@ font-size: 50px;
 
     .balloonBuddy{
       width: 150px;
-      position: fixed;
-      left: 10px;
-      bottom: 10px;
       z-index: 1000;
     }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
 
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .nav-link-h1{
       display: none !important;
     }
@@ -1470,6 +1576,20 @@ font-size: 50px;
       width: 100%;
     right: 0px;
     }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .startBtn {
       margin-right: 20px;
     }
@@ -1529,6 +1649,20 @@ font-size: 50px;
       width: 100%;
     right: 0px;
     }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .startBtn {
       margin-right: 20px;
     }
@@ -1587,6 +1721,20 @@ font-size: 50px;
     .headContainer{
       width: 100%;
     right: 0px;
+    }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
     }
     .startBtn {
       margin-right: 20px;
@@ -1648,6 +1796,20 @@ font-size: 50px;
       width: 100%;
     right: 0px;
     }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .startBtn {
       margin-right: 20px;
     }
@@ -1706,6 +1868,20 @@ font-size: 50px;
     .headContainer{
       width: 100%;
     right: 0px;
+    }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
     }
     .startBtn {
       margin-right: 20px;
@@ -1778,6 +1954,20 @@ font-size: 50px;
       width: 100%;
     right: 0px;
     }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .startBtn {
       margin-right: 20px;
     }
@@ -1835,6 +2025,20 @@ font-size: 50px;
     .headContainer{
       width: 100%;
     right: 0px;
+    }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
     }
     .startBtn {
       margin-right: 20px;
@@ -1905,6 +2109,20 @@ font-size: 50px;
       width: 100%;
     right: 0px;
     }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .startBtn {
       margin-right: 20px;
     }
@@ -1962,6 +2180,20 @@ font-size: 50px;
     .headContainer{
       width: 100%;
     right: 0px;
+    }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
     }
     .startBtn {
       margin-right: 20px;
@@ -2031,6 +2263,20 @@ font-size: 50px;
       width: 100%;
     right: 0px;
     }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .startBtn {
       margin-right: 20px;
     }
@@ -2088,6 +2334,20 @@ font-size: 50px;
     .headContainer{
       width: 100%;
     right: 0px;
+    }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
     }
     .startBtn {
       margin-right: 20px;
@@ -2156,6 +2416,20 @@ font-size: 50px;
       width: 100%;
     right: 0px;
     }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .startBtn {
       margin-right: 20px;
     }
@@ -2213,6 +2487,20 @@ font-size: 50px;
     .headContainer{
       width: 100%;
     right: 0px;
+    }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
     }
     .startBtn {
       margin-right: 20px;
@@ -2281,6 +2569,20 @@ font-size: 50px;
       width: 100%;
     right: 0px;
     }
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
+    }
     .startBtn {
       margin-right: 20px;
     }
@@ -2337,6 +2639,20 @@ font-size: 50px;
     .headContainer{
       width: 100%;
     right: 0px;
+    }
+
+    .balloonBuddy{
+      width: 150px;
+      z-index: 1000;
+    }
+    .first-nav-div{
+      float: left;
+    }
+    .nav-link-container{visibility: hidden}
+    .balloonLightLogo {
+      width: 50px;
+      margin-left: 20px;
+      margin-top: -15px;
     }
     .startBtn {
       margin-right: 20px;
