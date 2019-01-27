@@ -10,17 +10,17 @@ import Maths from './modes/Maths'
 import Words from './modes/Words'
 import Infant from './modes/Infant'
 import Landing from './Landing'
+import Instruction from './Instruction'
+
+import img from './assets/balloon-logo-two.png'
 
 import $ from 'jquery'
-
-import balloonImg from './Artboard-1.png'
 
 var interval = ''
 
 class App extends Component {
 
   state = {
-
     linkClicked: false
   }
 
@@ -162,8 +162,12 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Instruction/>
         <div className="nav">
-          <Link className="nav-link" to="/"><h1 style={{color: 'black'}} onClick={this.handleLinkClick}>Balloon Learning</h1></Link>
+          <div className="first-nav-div">
+          <Link className="nav-link" to="/"><img className="balloonLightLogo" src={img}/></Link>
+          <h1 style={{color: 'black', marginTop: 'auto'}} onClick={this.handleLinkClick}>Balloon Learning</h1>
+          </div>
           {this.state.linkClicked
             ? <div className="nav-link-container">
                 <Link className="nav-link-lower" to="/Maths"><li>{maths}</li></Link>

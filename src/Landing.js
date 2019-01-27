@@ -29,7 +29,7 @@ class Landing extends Component {
     return(
       <div className='landingContainer'>
 
-          <Link className="drop-link" to="/Maths" onClick={this.props.handleClick}>
+          <Link style={{cursor: 'pointer'}} className="drop-link" to="/Maths" onClick={this.props.handleClick}>
           <div className="landingBal red">
             <div className="landingBal-h1-container">
               <h1>&#43;&nbsp;&minus;</h1>
@@ -39,7 +39,7 @@ class Landing extends Component {
           </div>
           </Link>
 
-          <Link className="drop-link" to="/Words" onClick={this.props.handleClick}>
+          <Link style={{cursor: 'pointer'}} className="drop-link" to="/Words" onClick={this.props.handleClick}>
           <div className="landingBal blue">
           <div className="landingBal-h1-container">
             <h1>ABC</h1>
@@ -47,7 +47,7 @@ class Landing extends Component {
           </div>
           </Link>
 
-          <Link className="drop-link" to="/Infant" onClick={this.props.handleClick}>
+          <Link style={{cursor: 'pointer'}} className="drop-link" to="/Infant" onClick={this.props.handleClick}>
           <div className="landingBal green">
           <div className="landingBal-h1-container">
             <h1 style={{fontSize: 80 + 'px'}}><FontAwesomeIcon icon="baby" /></h1>
