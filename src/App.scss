@@ -101,7 +101,7 @@ canvas {
 
 }
 
-.nav-link h1{
+.nav-link-h1{
   font-size: 30px;
     padding-bottom: 10px;
 }
@@ -720,6 +720,18 @@ font-size: 50px;
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
 
+    .balloonBuddy{
+      width: 150px;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      z-index: 1000;
+    }
+
+    .nav-link-h1{
+      display: none !important;
+    }
+
     .balContainer{
       height: 400px;
     }
@@ -774,6 +786,18 @@ font-size: 50px;
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
+
+    .balloonBuddy{
+      width: 150px;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      z-index: 1000;
+    }
+
+    .nav-link-h1{
+      display: none !important;
+    }
 
     .balContainer{
       height: 400px;
@@ -839,6 +863,18 @@ font-size: 50px;
     .balContainer{
       height: 400px;
     }
+
+    .balloonBuddy{
+      width: 150px;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      z-index: 1000;
+    }
+
+    .nav-link-h1{
+      display: none !important;
+    }
     .landingContainer {
       position: relative;
       top: 30px;
@@ -898,6 +934,18 @@ font-size: 50px;
     }
     .balContainer{
       height: 400px;
+    }
+
+    .balloonBuddy{
+      width: 150px;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      z-index: 1000;
+    }
+
+    .nav-link-h1{
+      display: none !important;
     }
     .lostBal{
       width: 300px;
@@ -963,6 +1011,18 @@ font-size: 50px;
     .balContainer{
       height: 350px;
     }
+
+    .balloonBuddy{
+      width: 150px;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      z-index: 1000;
+    }
+
+    .nav-link-h1{
+      display: none !important;
+    }
     .lostBal{
       width: 300px;
       height: 300px;
@@ -1015,6 +1075,18 @@ font-size: 50px;
     }
     .balContainer{
       height: 350px;
+    }
+
+    .balloonBuddy{
+      width: 150px;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      z-index: 1000;
+    }
+
+    .nav-link-h1{
+      display: none !important;
     }
     .lostBal{
       width: 300px;
@@ -1088,6 +1160,18 @@ font-size: 50px;
     .balContainer{
       height: 400px;
     }
+
+    .balloonBuddy{
+      width: 150px;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      z-index: 1000;
+    }
+
+    .nav-link-h1{
+      display: none !important;
+    }
     .lostBal{
       width: 300px;
       height: 300px;
@@ -1149,6 +1233,18 @@ font-size: 50px;
     }
     .balContainer{
       height: 400px;
+    }
+
+    .balloonBuddy{
+      width: 150px;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      z-index: 1000;
+    }
+
+    .nav-link-h1{
+      display: none !important;
     }
     .lostBal{
       width: 300px;
@@ -1222,6 +1318,18 @@ font-size: 50px;
     .balContainer{
       height: 400px;
     }
+
+    .balloonBuddy{
+      width: 150px;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      z-index: 1000;
+    }
+
+    .nav-link-h1{
+      display: none !important;
+    }
     .lostBal{
       width: 300px;
       height: 300px;
@@ -1283,6 +1391,18 @@ font-size: 50px;
     }
     .balContainer{
       height: 400px;
+    }
+
+    .balloonBuddy{
+      width: 150px;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      z-index: 1000;
+    }
+
+    .nav-link-h1{
+      display: none !important;
     }
     .lostBal{
       width: 300px;

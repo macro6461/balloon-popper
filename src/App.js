@@ -166,7 +166,7 @@ class App extends Component {
         <div className="nav">
           <div className="first-nav-div">
           <Link className="nav-link" to="/"><img className="balloonLightLogo" src={img}/></Link>
-          <h1 style={{color: 'black', marginTop: 'auto'}} onClick={this.handleLinkClick}>Balloon Learning</h1>
+          <h1 className="nav-link-h1" style={{color: 'black', marginTop: 'auto'}} onClick={this.handleLinkClick}>Balloon Learning</h1>
           </div>
           {this.state.linkClicked
             ? <div className="nav-link-container">
