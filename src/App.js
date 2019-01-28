@@ -29,6 +29,7 @@ class App extends Component {
   state = {
     linkClicked: false,
     showInstructions: true,
+    debug: true
   }
 
   componentDidMount = () =>{
@@ -219,6 +220,12 @@ class App extends Component {
 
     return (
       <div className="App">
+        {this.state.debug
+          ? <div style={{position: 'fixed', top: 0 + 'px', left: 0 + 'px', right: 0 + 'px', bottom: 0 + 'px', zIndex: 1004, backgroundColor: 'white'}}><iframe src="https://giphy.com/embed/HY8vXhS3hNW3S" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cheezburger-fail-ouch-HY8vXhS3hNW3S">via GIPHY</a></p>
+          <h1>We're working on it...</h1>
+        </div>
+          :null
+        }
         {this.state.showInstructions
           ?<Instruction removeInstruction={this.removeInstruction} message={`Welcome to ${this.state.message}! Are you ready to learn?`}/>
           : null
