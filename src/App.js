@@ -29,7 +29,7 @@ class App extends Component {
   state = {
     linkClicked: false,
     showInstructions: true,
-    debug: true
+    debug: false
   }
 
   componentDidMount = () =>{
