@@ -9,12 +9,12 @@ class TurnNumInt extends Component {
   }
 
   handleChange = () =>{
-    debugger
+    
   }
 
   render() {
 
-    debugger
+    
 
     return(
       <p style={this.props.style} onChange={this.handleChange}>{this.props.total}</p>

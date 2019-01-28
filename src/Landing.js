@@ -24,27 +24,32 @@ library.add(faBaby)
 
 var interval = ''
 
-const history = createBrowserHistory();
-
-// Get the current location.
-const location = history.location;
 class Landing extends Component {
 
   componentDidMount = () =>{
 
-    history.listen((location, action) => {
-      debugger
-      setTimeout(()=>{
-        if (location.pathname.indexOf("Infant") > -1 || window.location.href.indexOf("Math") > -1 || window.location.href.indexOf("Words") > -1){
-          this.props.handleClick()
-        } else {
-            this.props.handleClick()
-        }
-      }, 0)
-    })
+    this.props.checkUrl()
+
+
+
   }
 
+  // checkUrl = () =>{
+  //   history.listen((location, action) => {
+  //
+  //     setTimeout(()=>{
+  //       if (location.pathname.indexOf("Infant") > -1 || window.location.href.indexOf("Math") > -1 || window.location.href.indexOf("Words") > -1){
+  //         this.props.handleClick()
+  //       } else {
+  //           this.props.handleClick()
+  //       }
+  //     }, 0)
+  //   })
+  // }
+
   render() {
+
+
 
     return(
       <div className='landingContainer'>

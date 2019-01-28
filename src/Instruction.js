@@ -18,7 +18,11 @@ class Instruction extends Component {
 
   removeInstruction = () =>{
     this.props.removeInstruction()
-    debugger
+
+  }
+
+  chooseText = () =>{
+
   }
 
   render() {
@@ -26,6 +30,11 @@ class Instruction extends Component {
     return(
       <div className='instructionOuterContainer'>
         <div className='instructionModalBackground'></div>
+        <div className='bubbleContainer'>
+        <div className="speech-bubble">
+          <p>Welcome to Balloon Learning! Are you ready to learn?</p>
+        </div>
+        </div>
         <div className='instructionContainer'>
           <img className="balloonBuddy" src={smileBal} onClick={this.removeInstruction}/>
         </div>

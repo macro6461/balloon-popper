@@ -39,7 +39,7 @@ class TurnNumContainer extends Component {
   }
 
   splitPrevTotal = (x)=>{
-    debugger
+    
     var arr = x
     this.setState({
       prevArrTotal: arr

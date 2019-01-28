@@ -133,6 +133,73 @@ canvas {
   cursor: pointer !important;
 }
 
+.speech-bubble {
+	position: relative;
+	background-color: #FFFFFF;
+	border-radius: 200px;
+  height:300px;
+  width: 400px;
+}
+
+.speech-bubble p {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  display: block;
+  margin: auto;
+  width: 300px;
+  font-size: 30px;
+}
+
+.bubbleContainer{
+  z-index: 1000;
+  position: fixed;
+  bottom: 240px;
+  left: 120px;
+  animation: scale-thought-bubble 0.5s;
+}
+
+@keyframes scale-thought-bubble {
+  0% {
+    transform: scale(0);
+  } 100%{
+    transform: scale(0);
+  } 20%{
+    transform: scale(0.5);
+  } 30%{
+    transform: scale(0.7);
+  } 40%{
+    transform: scale(0.9);
+  } 50%{
+    transform: scale(1.1);
+  } 60%{
+    transform: scale(0.9);
+  } 70%{
+    transform: scale(0.7);
+  }80%{
+    transform: scale(0.9);
+  }90%{
+    transform: scale(1.1);
+  }100%{
+    transform: scale(1);
+  }
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 10px;
+	left: 110px;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: #FFFFFF;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -10px;
+	margin-bottom: -20px;
+}
+
 .nav-link, .nav-link-lower{
   z-index: 999;
   text-decoration: none;
@@ -780,6 +847,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -794,6 +900,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -867,6 +1012,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -951,6 +1135,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -1028,6 +1251,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -1111,6 +1373,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -1181,6 +1482,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -1272,6 +1612,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -1351,6 +1730,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -1442,6 +1860,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -1521,6 +1978,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -1605,6 +2101,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -1678,6 +2213,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -1750,6 +2324,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -1825,6 +2438,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -1897,6 +2549,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -1983,6 +2674,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -2054,6 +2784,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -2138,6 +2907,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -2209,6 +3017,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -2292,6 +3139,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -2363,6 +3249,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -2445,6 +3370,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -2516,6 +3480,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
 
@@ -2598,6 +3601,45 @@ font-size: 50px;
     .first-nav-div{
       float: left;
     }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
+    }
     .nav-link-container{visibility: hidden}
 
     .balloonLightLogo {
@@ -2669,6 +3711,45 @@ font-size: 50px;
     }
     .first-nav-div{
       float: left;
+    }
+    .speech-bubble p {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    display: block;
+    margin: auto;
+    width: 200px;
+    font-size: 20px;
+}
+    .speech-bubble {
+    	position: relative;
+    	background-color: #FFFFFF;
+    	border-radius: 100px;
+      height:200px;
+      width: 250px;
+
+    }
+
+    .bubbleContainer{
+      z-index: 1000;
+      position: fixed;
+      bottom: 220px;
+      left: 10%;
+    }
+
+    .speech-bubble:after {
+    	content: '';
+    	position: absolute;
+    	bottom: 2px;
+    	left: 100px;
+    	width: 0;
+    	height: 0;
+    	border: 20px solid transparent;
+    	border-top-color: #FFFFFF;
+    	border-bottom: 0;
+    	border-left: 0;
+    	margin-left: -10px;
+    	margin-bottom: -20px;
     }
     .nav-link-container{visibility: hidden}
     .balloonLightLogo {

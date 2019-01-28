@@ -114,7 +114,7 @@ class Words extends Component {
   }
 
   checkAllLetters = () =>{
-    debugger
+    
     var classNames = this.state.letters.map((letter)=>{
       return letter.className
     })
@@ -150,7 +150,7 @@ class Words extends Component {
   }
 
   calcPoints = () =>{
-    debugger
+    
       this.setState({
         total: this.state.total + 5
       })

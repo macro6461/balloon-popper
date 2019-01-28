@@ -11,10 +11,16 @@ import Words from './modes/Words'
 import Infant from './modes/Infant'
 import Landing from './Landing'
 import Instruction from './Instruction'
+import { createBrowserHistory } from 'history';
 
 import img from './assets/balloon-logo-two.png'
 
 import $ from 'jquery'
+
+const history = createBrowserHistory();
+
+// Get the current location.
+const location = history.location;
 
 var interval = ''
 
@@ -23,6 +29,45 @@ class App extends Component {
   state = {
     linkClicked: false,
     showInstructions: true,
+  }
+
+  componentDidMount = () =>{
+
+
+
+    this.checkUrl()
+
+  }
+
+  checkInstructions = () =>{
+    if (location.pathname.indexOf("Infant") > -1){
+      this.applyInstructions("Infant Learning")
+    } else if (location.pathname.indexOf("Words") > -1){
+      this.applyInstructions("Words")
+    } else {
+      this.applyInstructions("Math")
+    }
+  }
+
+  applyInstructions = (x) =>{
+
+    this.setState({
+      message: x
+    })
+  }
+
+  checkUrl = () =>{
+    history.listen((location, action) => {
+      setTimeout(()=>{
+        if (location.pathname.indexOf("Infant") > -1 || window.location.href.indexOf("Math") > -1 || window.location.href.indexOf("Words") > -1){
+          this.handleLinkClick()
+          this.applyInstructions('Balloon Learning')
+        } else {
+          this.handleLinkClick()
+          this.checkInstructions()
+        }
+      }, 0)
+    })
   }
 
   handleLinkClick = () =>{
@@ -40,14 +85,14 @@ class App extends Component {
   }
 
   removeInstruction = () =>{
-    debugger
+
     this.setState({
       showInstructions: false
     })
   }
 
   boomBoom = (actualX,actualY, e) => {
-    debugger
+
     var targ
 
     if (e.target.classList.value == 'spanDiv'){
@@ -165,7 +210,7 @@ class App extends Component {
 
   yourHandler = (previousRoute, nextRoute)=>{
    //do your logic here
-   debugger
+
   }
 
   render() {
@@ -175,7 +220,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.showInstructions
-          ?<Instruction removeInstruction={this.removeInstruction}/>
+          ?<Instruction removeInstruction={this.removeInstruction} message={`Welcome to ${this.state.message}! Are you ready to learn?`}/>
           : null
         }
 
@@ -196,7 +241,7 @@ class App extends Component {
 
           <canvas id="output" ></canvas>
 
-        <Route exact path="/" component={() => <Landing handleClick={()=>{this.handleLinkClick()}} />} onChange={this.yourHandler}/>
+        <Route exact path="/" component={() => <Landing handleClick={this.handleLinkClick} history={history} checkUrl={this.checkUrl} />} onChange={this.yourHandler}/>
         <Route exact path="/Math" component={Maths} />
         <Route exact path="/Words" component={Words} />
         <Route exact path="/Infant" component={Infant} />
