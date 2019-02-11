@@ -6,6 +6,70 @@
 	margin: 0; padding: 0;
 }
 
+body{
+  display: block;
+  margin: auto;
+  height: 100%;
+}
+
+.normInt{
+  color: black;
+  display: inline-block;
+
+}
+
+.redIntDown{
+  color: red;
+  display: inline-block;
+  animation: rotate-down 0.5s;
+
+}
+
+.greenIntUp{
+  color: green;
+  display: inline-block;
+  animation: rotate-up 0.5s;
+
+}
+
+.redIntUp{
+  color: red;
+  display: inline-block;
+animation: rotate-up 0.5s;
+}
+
+@keyframes rotate-up {
+  0%{
+    transform: translateY(-50px);
+    opacity: 1;
+  } 50% {
+    opacity: 0;
+    transform: translateY(50px);
+  }100%{
+    transform: translateY(0px);
+     opacity: 1;
+  }
+}
+
+.greenIntDown{
+  color: green;
+  display: inline-block;
+  animation: rotate-down 0.5s;
+}
+
+@keyframes rotate-down {
+  0%{
+    transform: translateY(50px);
+    opacity: 1;
+  } 50% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }100%{
+       transform: translateY(0px);
+       opacity: 1;
+     }
+}
+
 .instructionModalBackground{
   z-index: 1000;
   position: fixed;
@@ -33,6 +97,23 @@
   left: 10px;
   bottom: 10px;
   z-index: 1000;
+}
+
+.intContainer{
+  height: 30px;
+    overflow-y: hidden;
+    position: relative;
+    text-align: center;
+    width: 30px;
+    display: inline-block;
+    margin: auto;
+}
+
+numContainer{
+  width: 25%;
+  display: inline-block;
+  margin: auto;
+  position: absolute;
 }
 
 @keyframes slide-intro {
@@ -504,13 +585,15 @@ canvas {
 }
 
 .balTotal{
-  display: block;
-  margin: auto;
-  min-width: 50px;
-  font-size: 30px;
-  padding: 20px;
-  padding-top: 10px;
-  text-align: center;
+  height: 45px;
+overflow-y: hidden;
+display: block;
+margin: auto;
+min-width: 50px;
+font-size: 30px;
+padding: 20px;
+padding-top: 15px;
+text-align: center;
 }
 
 .balSpanOp {

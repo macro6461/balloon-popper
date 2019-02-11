@@ -6,6 +6,7 @@ import '../App.scss';
 import RedBalloon from '../balloons/RedBalloon'
 import Timer from '../Timer'
 import YouLose from '../balloons/YouLose'
+import TurnNumInt from '../TurnNumInt'
 
 import $ from 'jquery'
 
@@ -21,7 +22,10 @@ class Maths extends Component {
     myVar: '',
     timerClass: 'timer',
     lost: false,
-    passedTotal: 0
+    passedTotal: 0,
+    total: 0,
+    previousTotal: 0,
+    truesArr: [{color: '', bool: null}]
   }
 
   startTime = () =>{
@@ -98,14 +102,37 @@ class Maths extends Component {
   }
 
   calcPoints = (x, y) =>{
+
+    let num
+
     if (y === "-" ){
+      num = this.state.total - x
+    } else {
+      num = this.state.total + x
+    }
+
+    if (num < 0){
       this.setState({
-        total: this.state.total - x
+        previousTotal: this.state.total,
+        total: 0
       })
     } else {
+      var arr = this.compare(num, this.state.total)
+
+      // var arr = this.checkNums(num.toString().split("").reverse(), this.state.total.toString().split("").reverse())
+
       this.setState({
-        total: this.state.total + x
+        previousTotal: this.state.total,
+        total: num,
+        truesArr: arr
+      }, ()=>{
+        console.log(this.state.truesArr)
       })
+      setTimeout(()=>{
+        this.setState({
+          truesArr: []
+        })
+      }, 500)
     }
   }
 
@@ -156,6 +183,49 @@ class Maths extends Component {
     return hours+':'+minutes+':'+seconds;
   }
 
+  checkNums = (a, b) =>{
+    debugger
+  var bNum = parseInt(b.reverse().join(""))
+  var aNum = parseInt(a.reverse().join(""))
+
+  var arr = a.map((el, i)=>{
+    if (a.length === b.length){
+      if (aNum < bNum && parseInt(a[i]) < parseInt(b[i])) {
+        return {color: 'red', bool: false}
+      } else if ( aNum > bNum && parseInt(a[i]) > parseInt(b[i])) {
+        return {color: 'green', bool: true}
+      } else if ((aNum < bNum && parseInt(a[i]) === parseInt(b[i])) || (aNum < bNum && parseInt(a[i]) === parseInt(b[i]))) {
+        return null
+      } else {
+        return null
+      }
+    } else if (a.length > b.length){
+      return true
+    } else {
+      return false
+    }
+  })
+  this.setState({
+    truesArr: arr
+  })
+}
+
+compare(a, b) {
+    const digit = i => v => Math.floor(v / Math.pow(10, i)) % 10;
+
+    let color = a > b ? 'green' : 'red'
+
+
+    return Array
+        .from(
+            { length: Math.ceil(Math.log10(Math.max(a, b))) },
+            (_, i) =>
+                ((l, r) => l === r ? {color: color, bool: null } : {color: color, bool: l > r})
+                (...[a, b].map(digit(i)))
+        )
+        .reverse();
+}
+
   render() {
     var time = this.calcTime(this.state.time)
     var startBtnAction;
@@ -182,7 +252,9 @@ class Maths extends Component {
           <Timer time={time} passedClassName={this.state.timerClass}/>
           <div className="headContainer">
             <div className={startClass} onClick={startBtnAction}>{startBtntext}</div>
-            <div className="balTotal" onChange={this.handleOnChange()}>SCORE: {this.state.total}</div>
+            <div className="balTotal">SCORE: {this.state.total.toString().split("").map((num, i)=>{
+              return <TurnNumInt key={i} num={num} hash={this.state.truesArr[i]}/>
+            })}</div>
           </div>
         </div>
         <div className="parentBalContainer">

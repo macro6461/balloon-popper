@@ -29,12 +29,11 @@ class App extends Component {
   state = {
     linkClicked: false,
     showInstructions: true,
-    debug: false
+    debug: false,
+    outputTop: 0
   }
 
   componentDidMount = () =>{
-
-
 
     this.checkUrl()
 
@@ -64,6 +63,9 @@ class App extends Component {
           this.handleLinkClick()
           this.applyInstructions('Balloon Learning')
         } else {
+          this.setState({
+            outputTop: 0
+          })
           this.handleLinkClick()
           this.checkInstructions()
         }
@@ -209,14 +211,17 @@ class App extends Component {
     this.handleLinkClick()
   }
 
-  yourHandler = (previousRoute, nextRoute)=>{
-   //do your logic here
-
-  }
-
   render() {
 
     const maths = "Math"
+
+    let outputTop
+
+    if (location.pathname.indexOf("Infant") > -1 || window.location.href.indexOf("Math") > -1 || window.location.href.indexOf("Words") > -1){
+      outputTop = 100
+    } else {
+      outputTop = 0
+    }
 
     return (
       <div className="App">
@@ -230,6 +235,8 @@ class App extends Component {
           ?<Instruction removeInstruction={this.removeInstruction} message={`Welcome to ${this.state.message}! Are you ready to learn?`}/>
           : null
         }
+
+          <canvas id="output" style={{top: outputTop + 'px'}}></canvas>
 
         <div className="nav">
           <div className="first-nav-div">
@@ -246,12 +253,10 @@ class App extends Component {
           }
         </div>
 
-          <canvas id="output" ></canvas>
-
         <Route exact path="/" component={() => <Landing handleClick={this.handleLinkClick} history={history} checkUrl={this.checkUrl} />} onChange={this.yourHandler}/>
-        <Route exact path="/Math" component={Maths} />
-        <Route exact path="/Words" component={Words} />
-        <Route exact path="/Infant" component={Infant} />
+        <Route exact path="/Math" component={()=> <Maths checkUrl={this.applyTop}/>}/>
+        <Route exact path="/Words" component={()=> <Words checkUrl={this.checkUrl}/>} />
+        <Route exact path="/Infant" component={()=><Infant checkUrl={this.checkUrl}/>} />
       </div>
     );
   }

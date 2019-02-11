@@ -37,6 +37,7 @@ class Words extends Component {
   }
 
   componentDidMount = () =>{
+
     this.setState({
       word: this.generateWord(),
     }, ()=>{
@@ -114,7 +115,7 @@ class Words extends Component {
   }
 
   checkAllLetters = () =>{
-    
+
     var classNames = this.state.letters.map((letter)=>{
       return letter.className
     })
@@ -150,7 +151,7 @@ class Words extends Component {
   }
 
   calcPoints = () =>{
-    
+
       this.setState({
         total: this.state.total + 5
       })
